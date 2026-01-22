@@ -17,7 +17,9 @@ L'interface comporte trois zones :
 - **Zone en haut à droite** : permet de répondre aux questions.  
 - **Zone en bas à droite** : permet d'effectuer les réglages (n'oubliez pas le bouton **Valider** !).  
 
-![interface](fichiers/images/interface-1.png)
+<p align="center">
+  <img src="fichiers/images/interface.png" alt="Interface">
+</p>
 
 De bas en haut, dans la zone en bas à droite :  
 
@@ -73,8 +75,6 @@ Le choix de l’organisme se fait au lancement, via **Piveo.pyw**.
    ```bash
    pip install pyside6
    ```
-
-
 
 ### 🪟 Windows
 
