@@ -10,15 +10,17 @@ import os, gettext
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QGridLayout, QLabel, QHBoxLayout, QPushButton, QSpacerItem, QSizePolicy
 from PySide6.QtGui import QPixmap, QIcon
 from PySide6.QtCore import QSize, Qt
-from ModifierBDD import  ModifierBDD
+from app.ModifierBDD import  ModifierBDD
 from pathlib import Path
 from builtins import _
-from utils import get_repertoire_racine
-from utils_i18n import ui_value
+from app.utils import get_repertoire_racine
+from app.utils_i18n import ui_value
 
-repertoireRacine = os.path.dirname(os.path.abspath(__file__))
-fichierLangue = os.path.join(repertoireRacine, "fichiers", "configurationLangue.json")
 icones=["Gnome-go-first.png","Gnome-go-previous.png","Gnome-go-next.png","Gnome-go-last.png", ]
+
+dossierPersonnel = Path.home()
+dossierRacine = Path(__file__).resolve().parent.parent
+FichierLangue = dossierPersonnel / ".local" / "piveo" /"configurationLangue.json"
 
 class FrameGauche (QWidget):
     """ Créer la partie gauche de l'interface """
@@ -60,8 +62,7 @@ class FrameGauche (QWidget):
         self.labelImage.setStyleSheet("border: 1px solid #666; background-color: #f0f0f0;")
         self.labelImage.setAlignment(Qt.AlignmentFlag.AlignCenter)
         # Chargement de l'image par défaut
-        self.repertoire_racine = get_repertoire_racine() # voir fichier utils.py
-        cheminDefaut = os.path.join(self.repertoire_racine, "fichiers", "images", "inconnu.jpg")
+        cheminDefaut = dossierRacine / "ressources" / "fichiers" / "images" / "inconnu.jpg"
         pixmapDefaut = QPixmap(cheminDefaut).scaled(
             128, 128,
             Qt.AspectRatioMode.KeepAspectRatio,
@@ -75,9 +76,9 @@ class FrameGauche (QWidget):
         fonctions = [self.accederPremier, self.accederPrecedent, self.accederSuivant, self.accederDernier]
         icones = ["Gnome-go-first.png", "Gnome-go-previous.png", "Gnome-go-next.png", "Gnome-go-last.png"]
         self.boutons = []
-        for i in range(4):
+        for i, icone in enumerate(icones):
             bouton = QPushButton()
-            bouton.setIcon(QIcon(os.path.join(self.repertoire_racine, "fichiers", "icones", icones[i])))
+            bouton.setIcon(QIcon(str(dossierRacine / "ressources"  / "fichiers" / "icones" / icone)))
             bouton.setIconSize(QSize(24, 24))
             bouton.clicked.connect(fonctions[i])
             layoutBoutons.addWidget(bouton)
@@ -162,21 +163,29 @@ class FrameGauche (QWidget):
         self.structure.setText("-")
         self.specialites.setText("-")
         self.numOrdrePers.setText("-")
-        image_par_defaut = os.path.join(repertoireRacine, "fichiers", "images", "inconnu.jpg")
+        image_par_defaut = dossierRacine / "fichiers" / "images" / "inconnu.jpg"
         self.labelImage.setPixmap(QPixmap(image_par_defaut))   
             
     def majPhoto(self) -> None:
         """Mise à jour de la photo"""
-        nomImage = self.listePersonnes[self.rang][4]
-        cheminImage = os.path.join(self.repertoire_racine, "fichiers", self.config["CheminPhotos"], nomImage)
-
-        if os.path.exists(cheminImage):
-            pixmap = QPixmap(cheminImage)
+        nom_image = self.listePersonnes[self.rang][4]
+        chemin_image = (
+            dossierRacine
+            / "ressources"
+            / "fichiers"
+            / self.config["CheminPhotos"]
+            / nom_image
+        )
+        # si l'image existe
+        if chemin_image.exists():
+            pixmap = QPixmap(str(chemin_image))
         else:
-            # En cas d’image manquante, image par défaut
-            cheminDefaut = os.path.join(self.repertoire_racine, "fichiers", "images", "inconnu.jpg")
-            pixmap = QPixmap(cheminDefaut)
+            chemin_defaut = dossierRacine / "fichiers" / "images" / "inconnu.jpg"
+            pixmap = QPixmap(str(chemin_defaut))
         self.labelImage.setPixmap(pixmap)
+        print("Image demandée :", chemin_image)
+        print("Existe :", chemin_image.exists())
+
 
     def majNomPrenom(self):
         self.prenom.setText(self.listePersonnes[self.rang][0])

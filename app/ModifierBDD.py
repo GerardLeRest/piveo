@@ -6,7 +6,9 @@ Manipulation de la Base de Données
 """
 
 import sqlite3, os
-from utils import get_repertoire_racine
+from app.utils import get_repertoire_racine
+from pathlib import Path
+
 
 class ModifierBDD:
     """Manipulation de la BDD"""
@@ -14,10 +16,10 @@ class ModifierBDD:
         self.config = config
         self.cheminFichier = cheminFichier
         # chemin de la base de donnée
-        base_dir = get_repertoire_racine()
-        chemin_bdd = os.path.join(base_dir, cheminFichier)
+        BASE_DIR = Path(__file__).resolve().parent.parent
+        DB_PATH = BASE_DIR / "ressources" / "BaseDonnees" / cheminFichier
         # connexion à la BDD
-        self.conn = sqlite3.connect(chemin_bdd)
+        self.conn = sqlite3.connect(DB_PATH)
         self.curs = self.conn.cursor()
         self.curs.execute("PRAGMA foreign_keys=on;")
         self.listesPersonnes = []

@@ -3,11 +3,11 @@
 
 import sys, json, locale, gettext
 from pathlib import Path
-from GestionLangue import GestionLangue
+from app.GestionLangue import GestionLangue
 
 # Gestion de la langue de cette cesssion
 BASE_DIR = Path(__file__).resolve().parent
-LOCALE_DIR = BASE_DIR / "locales"
+LOCALE_DIR = BASE_DIR / "ressources" / "locales"
 
 configDir = Path.home() / ".config" / "piveo"
 configDir.mkdir(parents=True, exist_ok=True)
@@ -28,7 +28,7 @@ translation.install()
 
 # Lancement de la fenetre organisme
 from PySide6.QtWidgets import QApplication
-from ChoixOrganisme import ChoixOrganisme
+from app.ChoixOrganisme import ChoixOrganisme
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

@@ -13,8 +13,8 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QPixmap
 from builtins import _
-from FenetrePrincipale import Fenetre
-from utils import get_repertoire_racine
+from app.FenetrePrincipale import Fenetre
+from app.utils import get_repertoire_racine
 from pathlib import Path
 import json
 
@@ -101,7 +101,7 @@ class ChoixOrganisme(QWidget):
         else:
             fichier = None
         try:
-            chemin = self.repertoireRacine / fichier
+            chemin = self.repertoireRacine.parent / "ressources" /"config" / fichier
             with open(chemin, "r", encoding="utf-8") as f:
                 config = json.load(f)
         except Exception as e:

@@ -8,20 +8,20 @@
 
 import random, copy
 from pathlib import Path
-from FrameGauche import *
-from FrameDroiteHaute import *
-from FrameDroiteBasse import *
+from app.FrameGauche import *
+from app.FrameDroiteHaute import *
+from app.FrameDroiteBasse import *
 from builtins import _
 from PySide6.QtWidgets import (
     QMainWindow, QWidget,
     QMenu, QMessageBox
 )
 from PySide6.QtGui import QPixmap, QAction, QActionGroup
-from utils import get_repertoire_racine
-from utils_i18n import ui_value
+from app.utils import get_repertoire_racine
+from app.utils_i18n import ui_value
 from pathlib import Path
 from builtins import _
-from GestionLangue import GestionLangue
+from app.GestionLangue import GestionLangue
 
 
 REPERTOIRE_RACINE = Path(get_repertoire_racine())
