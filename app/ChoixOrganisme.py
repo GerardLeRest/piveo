@@ -17,7 +17,7 @@ from app.FenetrePrincipale import Fenetre
 from app.utils import get_repertoire_racine
 from pathlib import Path
 import json, sqlite3
-from paths import load_config, resolve_paths, ensure_paths
+from app.paths import load_config, resolve_paths, ensure_paths
 
 
 class ChoixOrganisme(QWidget):
