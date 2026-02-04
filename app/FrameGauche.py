@@ -25,15 +25,15 @@ FichierLangue = dossierPersonnel / ".local" / "piveo" /"configurationLangue.json
 class FrameGauche (QWidget):
     """ Créer la partie gauche de l'interface """
         
-    def __init__(self, listePersonnes, fenetre, config):
+    def __init__(self, listePersonnes, modifierBDD, fenetre, config):
         """Constructeur de la frame de gauche et de ses éléments"""
         super().__init__(fenetre) # constructeur de la classe parente
         self.config = config # configuration de l'interface - json
         layoutGauche = QVBoxLayout()  
         # poisition de LayoutGauche dans la fenetre principale de la fenêtreself.LayoutPrincipal(row=0,column=0,rowspan=3,padx=10,pady=2)
+        self.modif_bdd = modifierBDD
         self.listePersonnes=listePersonnes #liste des élèves
         self.rang=0     #rang de l'élève dans la classe
-        self.modif_bdd = ModifierBDD(config,config["BaseDonnees"])
         self.nbrePers=0 # nbre élèves
         self.resize(150, 100) # définir une taille fixe pour la fenêtre
         self.repertoire_racine = "" # repertoire du projet
@@ -173,6 +173,7 @@ class FrameGauche (QWidget):
             dossierRacine
             / "ressources"
             / "fichiers"
+            / "photos"
             / self.config["CheminPhotos"]
             / nom_image
         )

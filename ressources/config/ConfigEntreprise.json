@@ -4,5 +4,5 @@
   "Personne": "Salarié",
   "Specialite": "Fonctions",
   "BaseDonnees": "salaries.db",
-  "CheminPhotos": "photos/salaries/"
+  "CheminPhotos": "salaries"
 }

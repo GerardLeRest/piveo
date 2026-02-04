@@ -16,7 +16,9 @@ from builtins import _
 from app.FenetrePrincipale import Fenetre
 from app.utils import get_repertoire_racine
 from pathlib import Path
-import json
+import json, sqlite3
+from paths import load_config, resolve_paths, ensure_paths
+
 
 class ChoixOrganisme(QWidget):
     """Choisir l'organisme - Parlement - École - Entreprise"""
@@ -107,6 +109,13 @@ class ChoixOrganisme(QWidget):
         except Exception as e:
             print(f"Erreur lors du chargement du fichier : {e}")
             return
-        self.Piveo = Fenetre(config=config)
+        # connexion de la base de données
+        paths = resolve_paths(config)
+        ensure_paths(paths) # construction des dossiers manquant
+        print("BASE UTILISÉE :", paths["database"])  # ← LIGNE DE DEBUG
+        # connexion à la base de données
+        conn = sqlite3.connect(paths["database"])
+        # lancement de la fenetre
+        self.Piveo = Fenetre(config, conn)
         self.Piveo.show()
         self.close()

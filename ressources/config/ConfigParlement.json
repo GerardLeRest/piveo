@@ -4,6 +4,6 @@
   "Personne": "Député",
   "Specialite": "Commissions",
   "BaseDonnees": "deputes.db",
-  "CheminPhotos": "photos/deputes/"
+  "CheminPhotos": "deputes/"
 }
 

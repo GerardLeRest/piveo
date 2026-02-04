@@ -4,6 +4,6 @@
   "Personne": "Élève",
   "Specialite": "Options",
   "BaseDonnees": "eleves.db",
-  "CheminPhotos": "photos/eleves/"
+  "CheminPhotos": "eleves/"
 }
 

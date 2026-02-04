@@ -31,25 +31,32 @@ FICHIER_LANGUE: Path = Path.home() / ".config" / "piveo" / "configurationLangue.
 class Fenetre(QMainWindow):
     """ Créer l'interface graphique et lier les diffentes classes entre elles"""
     
-    def __init__(self, config):
-        super().__init__()   # constructeur de la classe parente
-        # configuration de l'application (Ecole-Entreprise-Parlement)
-        # voir tableaux JSON 
-        self.config= config
-        self.setWindowTitle(_("Piveo - ") + ui_value(self.config["Organisme"]))  # Titre de la fenêtre
-        self.setMaximumSize(self.width(), self.height()) # empêchement d'aggranissement de la fenêtre
-        # Création des 3 frames
-        self.FrameDrBa = FrameDroiteBasse(config, self)
-        self.FrameDrHa = FrameDroiteHaute(self.config,self)
-        self.FrameG = FrameGauche(self.FrameDrBa.listePersonnes, self, self.config)
-        self.modifierBDD = ModifierBDD(config, config["BaseDonnees"])
-        # Créer un widget central et y appliquer le layout principal
+    def __init__(self, config, conn):
+        super().__init__()
+
+        self.config = config
+        self.conn = conn
+        # paramétrage fenêtre
+        self.setWindowTitle(_("Piveo - ") + ui_value(self.config["Organisme"]))
+        self.setMaximumSize(self.width(), self.height())
+        # Instance UNIQUE de ModifierBDD
+        self.modifierBDD = ModifierBDD(self.conn)
+        # Frames (on passe conn ou modifierBDD)
+        self.FrameDrBa = FrameDroiteBasse(config, self.modifierBDD, self)
+        self.FrameDrHa = FrameDroiteHaute(self.config, self)
+        self.FrameG = FrameGauche(
+            self.FrameDrBa.listePersonnes,
+            self.modifierBDD,
+            self,
+            self.config
+        )
+        # Layout
         widget_central = QWidget()
-        layoutPrincipal = QGridLayout(widget_central)  # layout appliqué ici
+        layoutPrincipal = QGridLayout(widget_central)
         layoutPrincipal.addWidget(self.FrameG, 0, 0, 2, 1)
         layoutPrincipal.addWidget(self.FrameDrHa, 0, 1)
         layoutPrincipal.addWidget(self.FrameDrBa, 1, 1)
-        self.setCentralWidget(widget_central)  # c’est ici que tout s'affiche
+        self.setCentralWidget(widget_central)
         # Connexions
         self.FrameDrBa.boutonVal.clicked.connect(self.configurer)
         self.FrameDrHa.boutVal.clicked.connect(self.verifierRechercher)
@@ -57,11 +64,9 @@ class Fenetre(QMainWindow):
         self.FrameDrHa.boutSuite.clicked.connect(self.AllerALaSuite)
         self.FrameDrHa.prenomEntry.returnPressed.connect(self.validerRepNom)
         self.FrameDrHa.nomEntry.returnPressed.connect(self.verifierRechercher)
-        # repertoire de configuation de la fenetre
-        
-        self.show()
-        self. menus()
-        
+        self.show() # lancer la fenêtre
+        self.menus()
+            
     def menus(self) -> None:
         # barre de menus
         menuBar = self.menuBar()

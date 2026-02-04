@@ -16,15 +16,16 @@ import sys
 
 class FrameDroiteBasse (QWidget):
     """ Créer la partie droite basse de l'interface """
-    def __init__(self, config, fenetre = None ):
+    def __init__(self, config, modifierBDD, fenetre = None ):
         """Constructeur de la frame de droite et de ses éléments"""
         # constructeur de la classe parente
         super().__init__(fenetre)
         self.config = config # configuration de l'interface - json
+        self.modif = modifierBDD
         self.listePersonnes = []  # liste des élèves de la classe sélectionnée
         self.listeSpecialites = []  # liste des options des élèves de la classese
         #self.modif = ModifierBDD(config, "fichiers/personnes.bdd") -faux?
-        self.modif = ModifierBDD(self.config, self.config["BaseDonnees"])
+       
         self.specialiteSelectionnee = ""  # option sélectionnée
 
         layoutBasDroit = QVBoxLayout()

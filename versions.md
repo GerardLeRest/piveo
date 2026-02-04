@@ -17,4 +17,12 @@ version 1.3.3:
 
 version 1.3.4:
 
-- affichage de la 'cross.png' du 'check.png' fonctionnel
+- affichage de la 'cross.png' du 'check.png' fonctionne
+
+version 1.4.4:
+
+- réorganisation des fichiers/dossier: app, ressources, Piveo.pyw, README.md, requirements.txt, version.md, mon_env
+
+version 1.5.4:
+
+- création des dossiers fichiers, conf, data et le fichier configurationLangue.json, s'il ne sont pas présents dans le fichier ~/.local/piveo. 
