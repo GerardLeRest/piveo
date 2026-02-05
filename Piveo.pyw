@@ -5,7 +5,7 @@ import sys, locale, gettext, os
 from pathlib import Path
 from PySide6.QtWidgets import QApplication
 from app.GestionLangue import GestionLangue
-from app.paths import init_user_data
+from app.chargement import init_user_data
 
 # Langue
 BASE_DIR = Path(__file__).resolve().parent

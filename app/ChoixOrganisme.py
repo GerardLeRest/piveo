@@ -16,11 +16,10 @@ from pathlib import Path
 import json, sqlite3
 from app.FenetrePrincipale import Fenetre
 from app.utils import get_repertoire_racine
-from app.paths import resolve_paths, ensure_paths
-
 
 class ChoixOrganisme(QWidget):
     """Fenêtre de choix de l'organisme"""
+
 
     def __init__(self):
         super().__init__()
@@ -89,29 +88,27 @@ class ChoixOrganisme(QWidget):
 
     def lancer_piveo(self) -> None:
         """Lancé après le clic utilisateur"""
+
+        APP_NAME = "piveo"
+        USER_BASE = Path.home() / ".local" / APP_NAME
+    
         if self.radio_ecole.isChecked():
             fichier_config = "ConfigEcole.json"
         elif self.radio_entreprise.isChecked():
             fichier_config = "ConfigEntreprise.json"
         else:
             fichier_config = "ConfigParlement.json"
+        # charger la configuration choisie
         try:
-            chemin_config = (
-                self.repertoire_racine.parent
-                / "ressources"
-                / "config"
-                / fichier_config
-            )
+            chemin_config = USER_BASE / "config" / fichier_config
             with open(chemin_config, "r", encoding="utf-8") as f:
                 config = json.load(f)
         except Exception as e:
             print(f"Erreur lors du chargement de la configuration : {e}")
             return
-        # Construction des chemins et dossiers
-        paths = resolve_paths(config)
-        ensure_paths(paths)
-        # Connexion à la base de données
-        conn = sqlite3.connect(paths["database"])
+        # Chemin COMPLET vers la base de données
+        chemin_bdd = USER_BASE / "BaseDonnees" / config["BaseDonnees"]
+        conn = sqlite3.connect(chemin_bdd)
         # Lancement de la fenêtre principale
         self.fenetre_principale = Fenetre(config, conn)
         self.fenetre_principale.show()
