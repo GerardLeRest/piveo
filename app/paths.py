@@ -1,30 +1,49 @@
-from pathlib import Path
 import json
- 
-def resolve_paths(config: dict) -> dict:
-    """dictionnaire des lens vers le dossier local/piveo"""
-    base = Path.home() / ".local" / "piveo"
-    return {
-        "base": base,
-        "config": base / "config",
-        "BaseDonnees": base / "data",          # ← correspondance métier → technique
-        "fichiers": base / "fichiers",
-        "photos": base / "fichiers" / "photos" / config["CheminPhotos"],
-        "database": base / "data" / config["BaseDonnees"],
-    }
+import shutil
+from pathlib import Path
+from typing import Dict
 
-def ensure_paths(paths: dict) -> None:
-    """crée les dossiers qui manques"""
-    for key in ("config", "BaseDonnees", "fichiers", "photos"):
-        paths[key].mkdir(parents=True, exist_ok=True)
+APP_NAME = "piveo"
+USER_BASE = Path.home() / ".local" / APP_NAME
+
+
+def init_user_data() -> None:
+    """
+    Première initialisation de Piveo.
+    Copie resources/ vers ~/.local/piveo si nécessaire.
+    """
+    resources_base = Path(__file__).resolve().parent.parent / "ressources"
+
+    if USER_BASE.exists():
+        return
+
+    for item in resources_base.iterdir():
+        dest = USER_BASE / item.name
+        if item.is_dir():
+            shutil.copytree(item, dest) # dossier
+        else:
+            shutil.copy2(item, dest) # fichier
+
 
 def load_config(config_name: str = "config.json") -> dict:
-    """
-    Charge le fichier de configuration JSON du projet.
-    """
-    base_dir = Path(__file__).resolve().parent
-    config_path = base_dir / config_name
-    if not config_path.exists():
-        raise FileNotFoundError(f"Fichier de configuration introuvable : {config_path}")
+    """ Charge la configuration utilisateur. """
+    config_path = USER_BASE / "config" / config_name
     with open(config_path, "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def resolve_paths(config: dict) -> dict:
+    """retourne un dictionnaire de chemins"""
+    return {
+        "base": USER_BASE,
+        "config": USER_BASE / "config",
+        "BaseDonnees": USER_BASE / "BaseDonnees",   # ← CLÉ MANQUANTE
+        "fichiers": USER_BASE / "fichiers",
+        "photos": USER_BASE / "fichiers" / "photos" / config["CheminPhotos"],
+        "database": USER_BASE / "BaseDonnees" / config["BaseDonnees"],
+    }
+
+def ensure_paths(paths: Dict[str, Path]) -> None:
+    """ Crée les dossiers nécessaires à l'exécution si absents. """
+    for key in ("config", "BaseDonnees", "fichiers", "photos"):
+        paths[key].mkdir(parents=True, exist_ok=True)

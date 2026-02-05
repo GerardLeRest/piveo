@@ -32,7 +32,7 @@ class FrameGauche (QWidget):
         layoutGauche = QVBoxLayout()  
         # poisition de LayoutGauche dans la fenetre principale de la fenêtreself.LayoutPrincipal(row=0,column=0,rowspan=3,padx=10,pady=2)
         self.modif_bdd = modifierBDD
-        self.listePersonnes=listePersonnes #liste des élèves
+        self.listePersonnes=listePersonnes #liste des personnes
         self.rang=0     #rang de l'élève dans la classe
         self.nbrePers=0 # nbre élèves
         self.resize(150, 100) # définir une taille fixe pour la fenêtre

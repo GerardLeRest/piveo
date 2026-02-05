@@ -24,8 +24,7 @@ class FrameDroiteBasse (QWidget):
         self.modif = modifierBDD
         self.listePersonnes = []  # liste des élèves de la classe sélectionnée
         self.listeSpecialites = []  # liste des options des élèves de la classese
-        #self.modif = ModifierBDD(config, "fichiers/personnes.bdd") -faux?
-       
+
         self.specialiteSelectionnee = ""  # option sélectionnée
 
         layoutBasDroit = QVBoxLayout()

@@ -1,65 +1,59 @@
-#!/usr/bin/python2
-# -*- coding: utf-8 -*
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-"""     
-    Fenêtre d'accueil - choix de l'organisme:
-    Ecole, Entreprise, Parlement
+"""
+Fenêtre d'accueil – choix de l'organisme :
+École, Entreprise, Parlement
 """
 
 from PySide6.QtWidgets import (
-    QWidget, QVBoxLayout, QLabel, QRadioButton,
-    QPushButton
+    QWidget, QVBoxLayout, QLabel, QRadioButton, QPushButton
 )
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QPixmap
-from builtins import _
-from app.FenetrePrincipale import Fenetre
-from app.utils import get_repertoire_racine
+from gettext import gettext as _
 from pathlib import Path
 import json, sqlite3
-from app.paths import load_config, resolve_paths, ensure_paths
+from app.FenetrePrincipale import Fenetre
+from app.utils import get_repertoire_racine
+from app.paths import resolve_paths, ensure_paths
 
 
 class ChoixOrganisme(QWidget):
-    """Choisir l'organisme - Parlement - École - Entreprise"""
+    """Fenêtre de choix de l'organisme"""
 
     def __init__(self):
         super().__init__()
+        self.repertoire_racine = Path(get_repertoire_racine())
         self.interface()
 
     def interface(self) -> None:
-        """création de l'interface"""
+        """Création de l'interface graphique"""
         self.resize(250, 400)
         self.setWindowTitle(_("Piveo"))
-        self.setStyleSheet("background-color: white;")  # fond blanc propre
-        layout = QVBoxLayout() # layout général
-        layout.setContentsMargins(20, 20, 20, 20)  # marges internes propres
-
-        # Titre centré
-        label = QLabel(_("mode de fonctionnement"))
-        label.setStyleSheet("""
-            color: #2F4F4F;
-            font-weight: bold;
-            font-size: 20px;
-        """)
+        self.setStyleSheet("background-color: white;")
+        # layout verticale
+        layout = QVBoxLayout()
+        layout.setContentsMargins(20, 20, 20, 20)
+        # Titre
+        label = QLabel(_("Mode de fonctionnement"))
         label.setAlignment(Qt.AlignCenter)
+        label.setStyleSheet(
+            "color: #2F4F4F; font-weight: bold; font-size: 20px;"
+        )
         layout.addWidget(label)
-
         layout.addSpacing(10)
-
-        # Boutons radios
-        self.radioEcole = QRadioButton(_("Ecole"))
-        self.radioEntreprise = QRadioButton(_("Entreprise"))
-        self.radioParlement = QRadioButton(_("Parlement"))
-        self.radioEcole.setChecked(True) # radio s&électionné par défaut
-
-        for radio in [self.radioEcole, self.radioEntreprise, self.radioParlement]:
+        # Boutons radio
+        self.radio_ecole = QRadioButton(_("École"))
+        self.radio_entreprise = QRadioButton(_("Entreprise"))
+        self.radio_parlement = QRadioButton(_("Parlement"))
+        self.radio_ecole.setChecked(True)
+        for radio in (self.radio_ecole, self.radio_entreprise, self.radio_parlement):
             radio.setStyleSheet("font-size: 18px; margin: 2px 0;")
             layout.addWidget(radio)
-
+        # créer un espace
         layout.addSpacing(15)
-
-        # Bouton OK centré et stylisé
+        # Bouton OK
         bouton = QPushButton(_("OK"))
         bouton.setFixedWidth(80)
         bouton.setStyleSheet("""
@@ -74,48 +68,51 @@ class ChoixOrganisme(QWidget):
                 background-color: #5A9BD5;
             }
         """)
+        bouton.clicked.connect(self.lancer_piveo)
         layout.addWidget(bouton, alignment=Qt.AlignCenter)
-        bouton.clicked.connect(self.lancerPiveo)
-
+        # créer un espace
         layout.addSpacing(15)
-
-        # Logo centré
-        labelLogo = QLabel()
-        self.repertoireRacine = Path(get_repertoire_racine())
-        chemin_icone = self.repertoireRacine / "fichiers" / "logos" / "logoPiveo.png"
-        pixmap = QPixmap(str(chemin_icone))
+        # Logo
+        label_logo = QLabel()
+        chemin_logo = (
+            self.repertoire_racine / "fichiers" / "logos" / "logoPiveo.png"
+        )
+        pixmap = QPixmap(str(chemin_logo))
         if not pixmap.isNull():
-            pixmap = pixmap.scaledToWidth(100, Qt.SmoothTransformation)
-            labelLogo.setPixmap(pixmap)
-        labelLogo.setAlignment(Qt.AlignCenter)
-        layout.addWidget(labelLogo)
-
+            label_logo.setPixmap(
+                pixmap.scaledToWidth(100, Qt.SmoothTransformation)
+            )
+        label_logo.setAlignment(Qt.AlignCenter)
+        layout.addWidget(label_logo)
+        # attacher le layout à la fenêtre (self)
         self.setLayout(layout)
 
-    def lancerPiveo(self):
-        "lancement de la classe Piveo"
-        if self.radioEcole.isChecked():
-            fichier = "ConfigEcole.json"
-        elif self.radioEntreprise.isChecked():
-            fichier = "ConfigEntreprise.json"
-        elif self.radioParlement.isChecked():
-            fichier = "ConfigParlement.json"
+    def lancer_piveo(self) -> None:
+        """Lancé après le clic utilisateur"""
+        if self.radio_ecole.isChecked():
+            fichier_config = "ConfigEcole.json"
+        elif self.radio_entreprise.isChecked():
+            fichier_config = "ConfigEntreprise.json"
         else:
-            fichier = None
+            fichier_config = "ConfigParlement.json"
         try:
-            chemin = self.repertoireRacine.parent / "ressources" /"config" / fichier
-            with open(chemin, "r", encoding="utf-8") as f:
+            chemin_config = (
+                self.repertoire_racine.parent
+                / "ressources"
+                / "config"
+                / fichier_config
+            )
+            with open(chemin_config, "r", encoding="utf-8") as f:
                 config = json.load(f)
         except Exception as e:
-            print(f"Erreur lors du chargement du fichier : {e}")
+            print(f"Erreur lors du chargement de la configuration : {e}")
             return
-        # connexion de la base de données
+        # Construction des chemins et dossiers
         paths = resolve_paths(config)
-        ensure_paths(paths) # construction des dossiers manquant
-        print("BASE UTILISÉE :", paths["database"])  # ← LIGNE DE DEBUG
-        # connexion à la base de données
+        ensure_paths(paths)
+        # Connexion à la base de données
         conn = sqlite3.connect(paths["database"])
-        # lancement de la fenetre
-        self.Piveo = Fenetre(config, conn)
-        self.Piveo.show()
+        # Lancement de la fenêtre principale
+        self.fenetre_principale = Fenetre(config, conn)
+        self.fenetre_principale.show()
         self.close()
