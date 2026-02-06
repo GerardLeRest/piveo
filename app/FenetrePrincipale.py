@@ -25,7 +25,7 @@ from app.GestionLangue import GestionLangue
 
 
 REPERTOIRE_RACINE = Path(get_repertoire_racine())
-FICHIER_LANGUE: Path = Path.home() / ".config" / "piveo" / "configurationLangue.json"
+FICHIER_LANGUE: Path = Path.home() / ".local" / "piveo" / "config" / "configurationLangue.json"
 
 
 class Fenetre(QMainWindow):
@@ -118,9 +118,8 @@ class Fenetre(QMainWindow):
         else:
             self.actionFrancais.setChecked(True)    
     
-    def changerLangue(self, codeLangue)->None:
+    def changerLangue(self, codeLangue) -> None:
         self.gestionLangue.ecrire(codeLangue)
-        # sélection du radio
         self.afficherMessage()
 
     def afficherMessage(self):

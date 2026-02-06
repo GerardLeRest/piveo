@@ -11,7 +11,7 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QPixmap
-from gettext import gettext as _
+# from gettext import gettext as _
 from pathlib import Path
 import json, sqlite3
 from app.FenetrePrincipale import Fenetre
@@ -20,6 +20,7 @@ from app.utils import get_repertoire_racine
 class ChoixOrganisme(QWidget):
     """Fenêtre de choix de l'organisme"""
 
+    
 
     def __init__(self):
         super().__init__()
@@ -88,7 +89,7 @@ class ChoixOrganisme(QWidget):
 
     def lancer_piveo(self) -> None:
         """Lancé après le clic utilisateur"""
-
+        # chemin des ~/.loval/piveo
         APP_NAME = "piveo"
         USER_BASE = Path.home() / ".local" / APP_NAME
     

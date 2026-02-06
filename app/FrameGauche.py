@@ -184,8 +184,6 @@ class FrameGauche (QWidget):
             chemin_defaut = dossierRacine / "fichiers" / "images" / "inconnu.jpg"
             pixmap = QPixmap(str(chemin_defaut))
         self.labelImage.setPixmap(pixmap)
-        print("Image demandée :", chemin_image)
-        print("Existe :", chemin_image.exists())
 
 
     def majNomPrenom(self):
