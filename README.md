@@ -6,7 +6,7 @@ MémoVue est une application éducative développée en Python avec une interfac
 Elle permet d’apprendre ou de retrouver les noms et prénoms de personnes à partir d'une base de données SQLite3.
 
 <p align="center">
-  <img src="fichiers/images/accueil.png" alt="Accueil">
+  <img src="ressources/fichiers/images/accueil.png" alt="Accueil">
 </p>
 
 ## Fonctionnement
@@ -18,7 +18,7 @@ L'interface comporte trois zones :
 - **Zone en bas à droite** : permet d'effectuer les réglages (n'oubliez pas le bouton **Valider** !).  
 
 <p align="center">
-  <img src="fichiers/images/interface.png" alt="Interface">
+  <img src="ressources/fichiers/images/interface.png" alt="Interface">
 </p>
 
 De bas en haut, dans la zone en bas à droite :  

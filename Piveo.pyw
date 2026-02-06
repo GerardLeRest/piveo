@@ -11,7 +11,6 @@ from app.GestionLangue import GestionLangue
 # répertoires
 BASE_DIR = Path(__file__).resolve().parent
 LOCALE_DIR = BASE_DIR  /"ressources" / "locales"
-# dossier de configuration
 config_dir = Path.home() / ".local" / "piveo" / "config"
 config_dir.mkdir(parents=True, exist_ok=True)
 # fichier de configuration de la langue
@@ -33,14 +32,12 @@ translation.install()
 # import de l'interface APRÈS gettext
 from app.ChoixOrganisme import ChoixOrganisme
 
-
 # point d'entrée de l'application
 def main():
     app = QApplication(sys.argv)
     fenetre = ChoixOrganisme()
     fenetre.show()
     sys.exit(app.exec())
-
 
 if __name__ == "__main__":
     main()
