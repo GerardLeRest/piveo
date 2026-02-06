@@ -5,12 +5,16 @@ import locale
 import gettext
 from pathlib import Path
 from PySide6.QtWidgets import QApplication
-
+from app.chargement import init_user_data
 from app.GestionLangue import GestionLangue
 
 # répertoires
 BASE_DIR = Path(__file__).resolve().parent
-LOCALE_DIR = BASE_DIR  /"ressources" / "locales"
+LOCALE_DIR = BASE_DIR / "ressources" / "locales"
+# copie de ressources vers ~/.local/piveo
+# (uniquement si le dossier n'existe pas)
+init_user_data()
+# fichier config pour les json
 config_dir = Path.home() / ".local" / "piveo" / "config"
 config_dir.mkdir(parents=True, exist_ok=True)
 # fichier de configuration de la langue
@@ -28,7 +32,6 @@ translation = gettext.translation(
     fallback=True
 )
 translation.install()
-
 # import de l'interface APRÈS gettext
 from app.ChoixOrganisme import ChoixOrganisme
 
