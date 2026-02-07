@@ -24,7 +24,7 @@ from builtins import _
 from app.GestionLangue import GestionLangue
 
 
-REPERTOIRE_RACINE = Path(get_repertoire_racine())
+REPERTOIRE_RACINE = Path(__file__).resolve().parent.parent
 FICHIER_LANGUE: Path = Path.home() / ".local" / "piveo" / "config" / "configurationLangue.json"
 
 
@@ -284,9 +284,9 @@ class Fenetre(QMainWindow):
 
         # Affichage des icones
         # icone = ":/check.png" if match else ":/cross.png" # voir fichier icons_rc et icons_qrc
-        cheminIcone = REPERTOIRE_RACINE / "fichiers" / "icones"
-        icone = cheminIcone / "check.png" if match else cheminIcone / "cross.png"
-        image = QPixmap(icone)
+        cheminIcone = REPERTOIRE_RACINE / "ressources" / "fichiers" / "icones"
+        icone = cheminIcone / ("check.png" if match else "cross.png")
+        image = QPixmap(str(icone))
         self.FrameDrHa.labelImageGauche.setPixmap(image)
    
         if match:

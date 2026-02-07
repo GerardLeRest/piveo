@@ -26,3 +26,8 @@ version 1.4.4:
 version 1.5.4:
 
 - création des dossiers fichiers, conf, data et le fichier configurationLangue.json, s'il ne sont pas présents dans le fichier ~/.local/piveo. 
+
+version 1.5.5:
+
+- correction des icones de validation et d'echec qui maintenant apparaissent
+

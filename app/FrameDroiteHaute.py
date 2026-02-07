@@ -131,9 +131,9 @@ class FrameDroiteHaute(QWidget):
 
         # partie du bas - 2 images (réusssite à gauhe et score à droite)
         layoutImages = QHBoxLayout()
-        # image de validation chexk ou cross)
+        # image de validation check ou cross)
         self.labelImageGauche = QLabel()
-        self.image = QPixmap(os.path.join(repertoireRacine, "fichiers", "icones", "transparent.png"))
+        self.image = QPixmap(os.path.join(repertoireRacine, "ressources","fichiers", "icones", "transparent.png"))
         self.labelImageGauche.setPixmap(self.image) 
         layoutImages.addWidget(self.labelImageGauche)
         # espace entre l'image et le compteur de bonnes réponses
