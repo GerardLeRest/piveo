@@ -7,10 +7,10 @@ from pathlib import Path
 from PySide6.QtWidgets import QApplication
 from app.chargement import init_user_data
 from app.GestionLangue import GestionLangue
+from app.utils import resource_path
 
 # répertoires
-BASE_DIR = Path(__file__).resolve().parent
-LOCALE_DIR = BASE_DIR / "ressources" / "locales"
+LOCALE_DIR = resource_path("locales")
 # copie de ressources vers ~/.local/piveo
 # (uniquement si le dossier n'existe pas)
 init_user_data()
@@ -22,6 +22,7 @@ fichier_langue = config_dir / "configurationLangue.json"
 # lecture de la langue choisie
 gestion_langue = GestionLangue(fichier_langue)
 langue = gestion_langue.lire()
+print("LANGUE EFFECTIVE =", langue)
 # configuration locale système
 locale.setlocale(locale.LC_ALL, "")
 # initialisation de gettext AVANT toute interface
@@ -31,7 +32,14 @@ translation = gettext.translation(
     languages=[langue],
     fallback=True
 )
+import gettext
+print("LOCALE_DIR =", LOCALE_DIR)
+print("FIND MO    =", gettext.find("messages", str(LOCALE_DIR), [langue]))
+print("LANGUE     =", langue)
+print("CATALOG_SZ =", len(getattr(translation, "_catalog", {})))
 translation.install()
+print(_("École"))
+print(_("Mode de fonctionnement"))
 # import de l'interface APRÈS gettext
 from app.ChoixOrganisme import ChoixOrganisme
 

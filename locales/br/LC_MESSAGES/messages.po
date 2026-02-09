@@ -1,0 +1,147 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Piveo\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: br\n"
+
+msgid "Piveo"
+msgstr "Piveo"
+
+msgid "Mode de fonctionnement"
+msgstr "Mod da vont en-dro"
+
+msgid "École"
+msgstr "Skol"
+
+msgid "Entreprise"
+msgstr "Embregerezh"
+
+msgid "Parlement"
+msgstr "Parlamant"
+
+msgid "OK"
+msgstr "Mat eo"
+
+msgid "Apprentissage"
+msgstr "Deskadurezh"
+
+msgid "Test mental"
+msgstr "Taol-esae spered"
+
+msgid "Test ecrit"
+msgstr "Taol-esae skrivet"
+
+msgid "Rechercher"
+msgstr "Klask"
+
+msgid "Aléatoire"
+msgstr "Dargouezhek"
+
+msgid "Prenom+Nom"
+msgstr "Anv-bihan + Anv"
+
+msgid "Prenom"
+msgstr "Anv-bihan"
+
+msgid "Nom"
+msgstr "Anv"
+
+msgid "Valider"
+msgstr "Kadarnaat"
+
+msgid "- choisir une %(structure)s -"
+msgstr "- dibab ur %(structure)s -"
+
+msgid "- choisir un %(structure)s -"
+msgstr "- dibab un %(structure)s -"
+
+msgid "Prénom"
+msgstr "Anv-bihan"
+
+msgid "Indiquez votre prénom"
+msgstr "Merkit hoc’h anv-bihan"
+
+msgid "Indiquez votre nom"
+msgstr "Merkit hoc’h anv"
+
+msgid "Effacer"
+msgstr "Diverkañ"
+
+msgid "Suite"
+msgstr "War-lerc’h"
+
+msgid "0/0"
+msgstr "0/0"
+
+msgid "Parti"
+msgstr "Strollad politikel"
+
+msgid "Député"
+msgstr "Kannad"
+
+msgid "Commissions"
+msgstr "Komisionoù"
+
+msgid "Département"
+msgstr "Departamant"
+
+msgid "Salarié"
+msgstr "Goprad"
+
+msgid "Piveo - "
+msgstr "Piveo - "
+
+msgid "Menu"
+msgstr "Lañser"
+
+msgid "Langues"
+msgstr "Yezhoù"
+
+msgid "Licence GPL-v3"
+msgstr "Aotre-implijout GPL-v3"
+
+msgid "Quitter"
+msgstr "Kuitaat"
+
+msgid "Attention"
+msgstr "Diwallit"
+
+msgid "Les changements se feront au prochain démarrage."
+msgstr "Ar c'hemmoù a vo lakaet e pleustr er loc'hadenn da-heul."
+
+msgid "Aucun résultat"
+msgstr "Disoc'h ebet"
+
+msgid "Aucune personne trouvée."
+msgstr "Den ebet kavet."
+
+msgid ""
+"Ce logiciel est distribué sous licence GNU GPL version 3.\n"
+"\n"
+"Vous pouvez le redistribuer et/ou le modifier selon les termes de cette "
+"licence.\n"
+"\n"
+"Plus d'informations : https://www.gnu.org/licenses/gpl-3.0.html\n"
+"\n"
+"© 2026 Gérard Le Rest - ge.lerest@gmail.com"
+msgstr ""
+"Skignet eo ar meziant-mañ dindan aotre-implijout GNU GPL handelv 3.\n"
+"\n"
+"Gellout a rit adskignañ anezhañ ha/pe kemmañ anezhañ hervez termenoù an aotre-mañ.\n"
+"\n"
+"Muioc'h a ditouroù : https://www.gnu.org/licenses/gpl-3.0.html\n"
+"\n"
+"© 2026 Gérard Le Rest - ge.lerest@gmail.com"
+
+msgid "GPL-v3"
+msgstr "GPL-v3"
+
+msgid "Prénom :"
+msgstr "Anv-bihan :"
+
+msgid "Nom :"
+msgstr "Anv :"
+
+msgid "rang / effectif "
+msgstr "renk / niver"

@@ -17,7 +17,6 @@ from PySide6.QtWidgets import (
     QMenu, QMessageBox
 )
 from PySide6.QtGui import QPixmap, QAction, QActionGroup
-from app.utils import get_repertoire_racine
 from app.utils_i18n import ui_value
 from pathlib import Path
 from builtins import _

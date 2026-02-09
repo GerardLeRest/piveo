@@ -13,7 +13,6 @@ from PySide6.QtCore import QSize, Qt
 from app.ModifierBDD import  ModifierBDD
 from pathlib import Path
 from builtins import _
-from app.utils import get_repertoire_racine
 from app.utils_i18n import ui_value
 
 icones=["Gnome-go-first.png","Gnome-go-previous.png","Gnome-go-next.png","Gnome-go-last.png", ]

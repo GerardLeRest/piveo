@@ -1,0 +1,197 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-09 17:09+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: app/ChoixOrganisme.py:33
+msgid "Piveo"
+msgstr ""
+
+#: app/ChoixOrganisme.py:39
+msgid "Mode de fonctionnement"
+msgstr ""
+
+#: app/ChoixOrganisme.py:47
+msgid "École"
+msgstr ""
+
+#: app/ChoixOrganisme.py:48 app/utils_i18n.py:8
+msgid "Entreprise"
+msgstr ""
+
+#: app/ChoixOrganisme.py:49 app/utils_i18n.py:4
+msgid "Parlement"
+msgstr ""
+
+#: app/ChoixOrganisme.py:57
+msgid "OK"
+msgstr ""
+
+#: app/FrameDroiteBasse.py:34
+msgid "Apprentissage"
+msgstr ""
+
+#: app/FrameDroiteBasse.py:35
+msgid "Test mental"
+msgstr ""
+
+#: app/FrameDroiteBasse.py:36
+msgid "Test ecrit"
+msgstr ""
+
+#: app/FrameDroiteBasse.py:37
+msgid "Rechercher"
+msgstr ""
+
+#: app/FrameDroiteBasse.py:73
+msgid "Aléatoire"
+msgstr ""
+
+#: app/FrameDroiteBasse.py:79
+msgid "Prenom+Nom"
+msgstr ""
+
+#: app/FrameDroiteBasse.py:80 app/FenetrePrincipale.py:362
+msgid "Prenom"
+msgstr ""
+
+#: app/FrameDroiteBasse.py:81 app/FrameDroiteHaute.py:43
+#: app/FenetrePrincipale.py:364 app/FrameGauche.py:51
+msgid "Nom"
+msgstr ""
+
+#: app/FrameDroiteBasse.py:112 app/FrameDroiteHaute.py:111
+msgid "Valider"
+msgstr ""
+
+#: app/FrameDroiteBasse.py:138
+#, python-format
+msgid "- choisir une %(structure)s -"
+msgstr ""
+
+#: app/FrameDroiteBasse.py:142
+#, python-format
+msgid "- choisir un %(structure)s -"
+msgstr ""
+
+#: app/FrameDroiteHaute.py:29 app/FrameGauche.py:45
+msgid "Prénom"
+msgstr ""
+
+#: app/FrameDroiteHaute.py:40 app/FenetrePrincipale.py:160
+msgid "Indiquez votre prénom"
+msgstr ""
+
+#: app/FrameDroiteHaute.py:54 app/FenetrePrincipale.py:161
+msgid "Indiquez votre nom"
+msgstr ""
+
+#: app/FrameDroiteHaute.py:115
+msgid "Effacer"
+msgstr ""
+
+#: app/FrameDroiteHaute.py:119
+msgid "Suite"
+msgstr ""
+
+#: app/FrameDroiteHaute.py:142 app/FenetrePrincipale.py:387
+msgid "0/0"
+msgstr ""
+
+#: app/utils_i18n.py:5
+msgid "Parti"
+msgstr ""
+
+#: app/utils_i18n.py:6
+msgid "Député"
+msgstr ""
+
+#: app/utils_i18n.py:7
+msgid "Commissions"
+msgstr ""
+
+#: app/utils_i18n.py:9
+msgid "Département"
+msgstr ""
+
+#: app/utils_i18n.py:10
+msgid "Salarié"
+msgstr ""
+
+#: app/FenetrePrincipale.py:40
+msgid "Piveo - "
+msgstr ""
+
+#: app/FenetrePrincipale.py:74
+msgid "Menu"
+msgstr ""
+
+#: app/FenetrePrincipale.py:76
+msgid "Langues"
+msgstr ""
+
+#: app/FenetrePrincipale.py:98
+msgid "Licence GPL-v3"
+msgstr ""
+
+#: app/FenetrePrincipale.py:101
+msgid "Quitter"
+msgstr ""
+
+#: app/FenetrePrincipale.py:128
+msgid "Attention"
+msgstr ""
+
+#: app/FenetrePrincipale.py:129
+msgid "Les changements se feront au prochain démarrage."
+msgstr ""
+
+#: app/FenetrePrincipale.py:388
+msgid "Aucun résultat"
+msgstr ""
+
+#: app/FenetrePrincipale.py:388
+msgid "Aucune personne trouvée."
+msgstr ""
+
+#: app/FenetrePrincipale.py:407
+msgid ""
+"Ce logiciel est distribué sous licence GNU GPL version 3.\n"
+"\n"
+"Vous pouvez le redistribuer et/ou le modifier selon les termes de cette "
+"licence.\n"
+"\n"
+"Plus d'informations : https://www.gnu.org/licenses/gpl-3.0.html\n"
+"\n"
+"© 2026 Gérard Le Rest - ge.lerest@gmail.com"
+msgstr ""
+
+#: app/FenetrePrincipale.py:412
+msgid "GPL-v3"
+msgstr ""
+
+#: app/FrameGauche.py:48
+msgid "Prénom :"
+msgstr ""
+
+#: app/FrameGauche.py:54
+msgid "Nom :"
+msgstr ""
+
+#: app/FrameGauche.py:105
+msgid "rang / effectif "
+msgstr ""

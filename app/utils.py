@@ -1,21 +1,19 @@
-import os, sys
+from pathlib import Path
+import sys
 
-def get_repertoire_racine() -> str:
+def base_dir() -> Path:
     """
-    Retourne le répertoire racine de l'application.
-
-    - Linux AppImage : dossier contenant l'AppImage
-    - Windows exe    : dossier contenant le .exe
-    - Python (dev)   : dossier du fichier courant
+    Retourne le dossier de la release :
+    - dossier contenant Piveo.pyw en dev
+    - dossier contenant Piveo.exe en prod
     """
-    # Linux AppImage
-    appimage = os.environ.get("APPIMAGE")
-    if appimage:
-        return os.path.dirname(os.path.abspath(appimage))
+    if getattr(sys, "frozen", False): # windows
+        return Path(sys.executable).resolve().parent
+    return Path(__file__).resolve().parent.parent
 
-    # Windows exe (PyInstaller, cx_Freeze, etc.)
-    if getattr(sys, "frozen", False):
-        return os.path.dirname(os.path.abspath(sys.executable))
-
-    # Python (dev)
-    return os.path.dirname(os.path.abspath(__file__))
+def resource_path(relative: str) -> Path:
+    """
+    Retourne le chemin absolu d'une ressource
+    située dans le dossier de la release.
+    """
+    return base_dir() / relative
