@@ -22,7 +22,6 @@ fichier_langue = config_dir / "configurationLangue.json"
 # lecture de la langue choisie
 gestion_langue = GestionLangue(fichier_langue)
 langue = gestion_langue.lire()
-print("LANGUE EFFECTIVE =", langue)
 # configuration locale système
 locale.setlocale(locale.LC_ALL, "")
 # initialisation de gettext AVANT toute interface
@@ -33,13 +32,7 @@ translation = gettext.translation(
     fallback=True
 )
 import gettext
-print("LOCALE_DIR =", LOCALE_DIR)
-print("FIND MO    =", gettext.find("messages", str(LOCALE_DIR), [langue]))
-print("LANGUE     =", langue)
-print("CATALOG_SZ =", len(getattr(translation, "_catalog", {})))
 translation.install()
-print(_("École"))
-print(_("Mode de fonctionnement"))
 # import de l'interface APRÈS gettext
 from app.ChoixOrganisme import ChoixOrganisme
 

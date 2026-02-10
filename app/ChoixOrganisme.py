@@ -72,8 +72,6 @@ class ChoixOrganisme(QWidget):
         # Logo
         label_logo = QLabel()
         chemin_logo = resource_path("ressources/fichiers/logos/logoPiveo.png")
-        print(chemin_logo)
-        print(chemin_logo.exists())
         pixmap = QPixmap(str(chemin_logo))
         if not pixmap.isNull():
             label_logo.setPixmap(
