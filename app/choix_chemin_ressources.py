@@ -1,7 +1,7 @@
 from pathlib import Path
 import sys
 
-def base_dir() -> Path:
+def dossier_ressources() -> Path:
     """
     Dossier racine des ressources :
     - en --onefile : dossier temporaire _MEIPASS (où PyInstaller décompresse)
@@ -18,5 +18,5 @@ def base_dir() -> Path:
     # dev : autre
     return Path(__file__).resolve().parent.parent
 
-def resource_path(relative: str) -> Path:
-    return base_dir() / relative
+def chemin_ressources(chemin_ressources: str) -> Path:
+    return dossier_ressources() / chemin_ressources

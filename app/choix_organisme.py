@@ -14,8 +14,8 @@ from PySide6.QtGui import QPixmap
 # from gettext import gettext as _
 from pathlib import Path
 import json, sqlite3
-from app.FenetrePrincipale import Fenetre
-from app.utils import resource_path
+from app.fenetre_principale import Fenetre
+from app.choix_chemin_ressources import chemin_ressources
 
 class ChoixOrganisme(QWidget):
     """Fenêtre de choix de l'organisme"""
@@ -71,7 +71,7 @@ class ChoixOrganisme(QWidget):
         layout.addSpacing(15)
         # Logo
         label_logo = QLabel()
-        chemin_logo = resource_path("ressources/fichiers/logos/logoPiveo.png")
+        chemin_logo = chemin_ressources("ressources/fichiers/logos/logoPiveo.png")
         pixmap = QPixmap(str(chemin_logo))
         if not pixmap.isNull():
             label_logo.setPixmap(

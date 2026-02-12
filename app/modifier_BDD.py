@@ -25,16 +25,16 @@ class ModifierBDD:
         # Activer les clés étrangères (important avec SQLite)
         self.curs.execute("PRAGMA foreign_keys = ON;")
         # Liste interne des personnes chargées
-        self.listesPersonnes = []
+        self.liste_personnes = []
         # Chargement initial des données
-        self.chargerPersonnes()
+        self.charger_personnes()
 
-    def chargerPersonnes(self):
+    def charger_personnes(self):
         """
         Charge toutes les personnes depuis la base de données
-        et les stocke dans self.listesPersonnes.
+        et les stocke dans self.liste_ personnes.
         """
-        self.listesPersonnes.clear()
+        self.liste_personnes.clear()
         self.curs.execute("""
             SELECT 
                 p.prenom,
@@ -60,28 +60,28 @@ class ModifierBDD:
                 liste_specialites,
                 photo
             ]
-            self.listesPersonnes.append(personne)
+            self.liste_personnes.append(personne)
 
-    def listerStructures(self):
+    def lister_structures(self):
         """
         Retourne la liste des structures présentes dans la base,
         sans doublon et triée alphabétiquement.
         """
         return sorted(
-            set(personne[2] for personne in self.listesPersonnes)
+            set(personne[2] for personne in self.liste_personnes)
         )
 
-    def personnesStructure(self, structure_nom: str):
+    def personnes_structure(self, structure_nom: str):
         """
         Retourne la liste des personnes appartenant à une structure donnée.
         """
         return [
             personne
-            for personne in self.listesPersonnes
+            for personne in self.liste_personnes
             if personne[2] == structure_nom
         ]
 
-    def fermerConnexion(self):
+    def fermer_connexion(self):
         """
         Ferme proprement la connexion à la base de données.
         """

@@ -1,4 +1,4 @@
-UI_VALUES = {
+LIBELLES_INTERFACE = {
     "parlement": "Parlement",
     "parti": "Parti",
     "depute": "Député",
@@ -8,5 +8,5 @@ UI_VALUES = {
     "salarie": "Salarié",
 }
 
-def ui_value(value: str) -> str:
-    return _(UI_VALUES.get(value, value))
+def libelle(value: str) -> str:
+    return _(LIBELLES_INTERFACE.get(value, value))

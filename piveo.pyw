@@ -6,11 +6,11 @@ import gettext
 from pathlib import Path
 from PySide6.QtWidgets import QApplication
 from app.chargement import init_user_data
-from app.GestionLangue import GestionLangue
-from app.utils import resource_path
+from app.gestion_langue import GestionLangue
+from app.choix_chemin_ressources import chemin_ressources
 
 # répertoires
-LOCALE_DIR = resource_path("locales")
+LOCALE_DIR = chemin_ressources("locales")
 # copie de ressources vers ~/.local/piveo
 # (uniquement si le dossier n'existe pas)
 init_user_data()
@@ -34,7 +34,7 @@ translation = gettext.translation(
 import gettext
 translation.install()
 # import de l'interface APRÈS gettext
-from app.ChoixOrganisme import ChoixOrganisme
+from app.choix_organisme import ChoixOrganisme
 
 # point d'entrée de l'application
 def main():

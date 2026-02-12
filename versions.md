@@ -23,11 +23,12 @@ version 1.4.4:
 
 - réorganisation des fichiers/dossier: app, ressources, Piveo.pyw, README.md, requirements.txt, version.md, mon_env
 
-version 1.5.3:
+version 1.5.4:
 
 - création des dossiers fichiers, conf, data et le fichier configurationLangue.json, s'il ne sont pas présents dans le fichier ~/.local/piveo. 
 
-version 1.5.4:
-
 - correction des icones de validation et d'echec qui maintenant apparaissent
+
 - correction des erreurs de traduction
+
+- 
