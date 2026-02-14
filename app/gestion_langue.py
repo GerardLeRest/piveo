@@ -14,8 +14,10 @@ class GestionLangue:
             return "fr"
 
         with open(self.fichier_config, "r", encoding="utf-8") as f:
-            return json.load(f).get("langueSelectionnee", "fr")
-
+            config_json = json.load(f)
+            return config_json. get("langueSelectionnee", "fr") # plus sur
+            # ou return config_json["langueSelectionnee"]
+        
     def ecrire(self, code_langue: str) -> None:
         with open(self.fichier_config, "w", encoding="utf-8") as f:
             json.dump(

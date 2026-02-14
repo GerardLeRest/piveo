@@ -24,30 +24,30 @@ from app.gestion_langue import GestionLangue
 
 
 REPERTOIRE_RACINE = Path(__file__).resolve().parent.parent
-FICHIER_LANGUE: Path = Path.home() / ".local" / "piveo" / "config" / "configurationLangue.json"
+FICHIER_LANGUE: Path = Path.home() / ".local" / "piveo" / "configurations_json" / "configurationLangue.json"
 
 
 class Fenetre(QMainWindow):
     """ Créer l'interface graphique et lier les diffentes classes entre elles"""
     
-    def __init__(self, config, conn):
+    def __init__(self, configuration_json, connexion_json):
         super().__init__()
 
-        self.config = config
-        self.conn = conn
+        self.configuration_json = configuration_json
+        self.connexion_json = connexion_json
         # paramétrage fenêtre
-        self.setWindowTitle(_("Piveo - ") + libelle(self.config["Organisme"]))
+        self.setWindowTitle(_("Piveo - ") + libelle(self.configuration_json["Organisme"]))
         self.setMaximumSize(self.width(), self.height())
         # Instance UNIQUE de ModifierBDD
-        self.modifier_BDD = ModifierBDD(self.conn)
+        self.gestionnaire_bdd = GestionnaireBdd(self.connexion_json)
         # Frames (on passe conn ou modifierBDD)
-        self.cadre_dr_bas = CadreDroitBasse(config, self.modifier_BDD, self)
-        self.cadre_dr_haut = CadreDroiteHaut(self.config, self)
+        self.cadre_dr_bas = CadreDroitBasse(configuration_json, self.gestionnaire_bdd, self)
+        self.cadre_dr_haut = CadreDroiteHaut(self.configuration_json, self)
         self.cadre_ga = CadreGauche(
             self.cadre_dr_bas.liste_personnes,
-            self.modifier_BDD,
+            self.gestionnaire_bdd,
             self,
-            self.config
+            self.configuration_json
         )
         # Layout
         widget_central = QWidget()
@@ -57,9 +57,9 @@ class Fenetre(QMainWindow):
         layout_principal.addWidget(self.cadre_dr_bas, 1, 1)
         self.setCentralWidget(widget_central)
         # Connexions
-        self.cadre_dr_bas.bouton_Val.clicked.connect(self.configurer)
-        self.cadre_dr_haut.bout_val.clicked.connect(self.verifier_rechercher)
-        self.cadre_dr_haut.bout_eff.clicked.connect(self.effacer)
+        self.cadre_dr_bas.bouton_valider.clicked.connect(self.configurer)
+        self.cadre_dr_haut.bout_valider.clicked.connect(self.verifier_rechercher)
+        self.cadre_dr_haut.bout_effacer.clicked.connect(self.effacer)
         self.cadre_dr_haut.bout_suite.clicked.connect(self.aller_a_la_suite)
         self.cadre_dr_haut.prenom_entree.returnPressed.connect(self.valider_rep_nom)
         self.cadre_dr_haut.nom_entree.returnPressed.connect(self.verifier_rechercher)
@@ -118,10 +118,12 @@ class Fenetre(QMainWindow):
             self.action_francais.setChecked(True)    
     
     def changer_langue(self, codeLangue) -> None:
+        """enregistrer la nouvelle langue"""
         self.gestion_langue.ecrire(codeLangue)
         self.afficher_message()
 
     def afficher_message(self):
+        """message d'averissement pour le chgt de la langue"""
         QMessageBox.warning(
             self,
             _("Attention"),
@@ -302,8 +304,8 @@ class Fenetre(QMainWindow):
         else:
             self.cadre_ga.maj_nom_prenom()
             self.cadre_ga.maj_classe_options()
-            self.cadre_dr_haut.bout_val.setEnabled(False)
-            self.cadre_dr_haut.bout_eff.setEnabled(False)
+            self.cadre_dr_haut.bout_valider.setEnabled(False)
+            self.cadre_dr_haut.bout_effacer.setEnabled(False)
             self.cadre_dr_haut.nom_entree.setEnabled(False)
             self.cadre_dr_haut.prenom_entree.setEnabled(False)
 
@@ -318,8 +320,8 @@ class Fenetre(QMainWindow):
             # avancer
             if (self.cadre_ga.rang<len(self.cadre_ga.liste_personnes)):
                 #réactivation des boutons
-                self.cadre_dr_haut.bout_val.setEnabled(True)
-                self.cadre_dr_haut.bout_eff.setEnabled(True)
+                self.cadre_dr_haut.bout_valider.setEnabled(True)
+                self.cadre_dr_haut.bout_effacer.setEnabled(True)
                 # maj bonnes réponses
                 self.cadre_dr_haut.nbre_rep.setText(str(self.cadre_dr_haut.nbre_rep_exactes)+"/"+str(self.cadre_ga.rang//2+1))
                 # N° de l'élève en cours
@@ -333,8 +335,8 @@ class Fenetre(QMainWindow):
                 else:
                     self.cadre_dr_haut.prenom_entree.setEnabled(False)
                     self.cadre_dr_haut.nom_entree.setEnabled(False)
-                    self.cadre_dr_haut.bout_val.setEnabled(False)
-                    self.cadre_dr_haut.bout_eff.setEnabled(False)
+                    self.cadre_dr_haut.bout_valider.setEnabled(False)
+                    self.cadre_dr_haut.bout_effacer.setEnabled(False)
                 # maj des photos
                 self.cadre_ga.maj_Photo()
                 if (self.cadre_ga.rang==len(self.cadre_ga.liste_personnes)-1):
@@ -354,7 +356,7 @@ class Fenetre(QMainWindow):
         mode = self.cadre_dr_bas.groupe_bas.checkedButton().text()
 
         # Boucle sur tous les élèves de l'établissement
-        for eleve in self.modifier_BDD.liste_personnes:
+        for eleve in self.gestionnaire_bdd.liste_personnes:
             prenom_eleve = eleve[0].lower().strip()
             nom_eleve = eleve[1].lower().strip()
             # conditions               

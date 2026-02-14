@@ -10,7 +10,7 @@ import os, gettext
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QGridLayout, QLabel, QHBoxLayout, QPushButton, QSpacerItem, QSizePolicy
 from PySide6.QtGui import QPixmap, QIcon
 from PySide6.QtCore import QSize, Qt
-from app.modifier_BDD import  ModifierBDD
+from app.gestionnaire_bdd import  GestionnaireBdd
 from pathlib import Path
 from builtins import _
 from app.textes_interface import libelle
@@ -24,13 +24,13 @@ fichier_langue = dossier_personnel / ".local" / "piveo" /"configurationLangue.js
 class CadreGauche (QWidget):
     """ Créer la partie gauche de l'interface """
         
-    def __init__(self, liste_personnes, modifier_BDD, fenetre, config):
+    def __init__(self, liste_personnes, recuperer_BDD, fenetre, configuration_json):
         """Constructeur de la frame de gauche et de ses éléments"""
         super().__init__(fenetre) # constructeur de la classe parente
-        self.config = config # configuration de l'interface - json
+        self.configuration_json = configuration_json # configuration de l'interface - json
         layout_gauche = QVBoxLayout()  
         # poisition de LayoutGauche dans la fenetre principale de la fenêtreself.LayoutPrincipal(row=0,column=0,rowspan=3,padx=10,pady=2)
-        self.modif_bdd = modifier_BDD
+        self.modif_bdd = recuperer_BDD
         self.liste_personnes=liste_personnes #liste des personnes
         self.rang=0     #rang de l'élève dans la classe
         self.nbre_pers=0 # nbre élèves
@@ -105,12 +105,12 @@ class CadreGauche (QWidget):
         layout_bas.addWidget(self.num_Ordre_Pers, alignment=Qt.AlignCenter)
         # affichage de la structure 
         self.structure=QLabel() # label de la structure
-        self.structure.setText(_(libelle(config["Structure"])))
+        self.structure.setText(_(libelle(configuration_json["Structure"])))
         self.structure.setStyleSheet("color: #76aeba; font-weight: bold; font-size: 11pt;")
         layout_bas.addWidget(self.structure, alignment=Qt.AlignCenter)
         # affichage des options
         self.specialites = QLabel() # permet de changer le texte du label
-        self.specialites.setText(_(libelle(config["Specialite"])))
+        self.specialites.setText(_(libelle(configuration_json["Specialite"])))
         self.specialites.setStyleSheet("font-size: 10pt;")
         layout_bas.addWidget(self.specialites, alignment=Qt.AlignCenter)
         # attachement au layout gauche
@@ -173,7 +173,7 @@ class CadreGauche (QWidget):
             / "ressources"
             / "fichiers"
             / "photos"
-            / self.config["CheminPhotos"]
+            / self.configuration_json["CheminPhotos"]
             / nom_image
         )
         # si l'image existe

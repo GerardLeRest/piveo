@@ -17,10 +17,10 @@ REPERTOIRE_RACINE=os.path.dirname(os.path.abspath(__file__)) # répetoire du fic
 class CadreDroiteHaut(QWidget):
     """ Créer la partie droite haute de l'interface """
         
-    def __init__(self, config, fenetre = None):
+    def __init__(self, configuration_json, fenetre = None):
         """Constructeur de la frame de droite et de ses éléments"""
         super().__init__(fenetre)  # ← Important 
-        self.config = config # configuration de l'interface - json
+        self.configuration_json = configuration_json # configuration de l'interface - json
         # layout de la classe
         layout_droit_haut = QVBoxLayout()        
         # zone de saisie - GrdGidLayout - partie haue
@@ -108,13 +108,13 @@ class CadreDroiteHaut(QWidget):
         # boutons
         layout_boutons = QHBoxLayout()
         # bouton valider
-        self.bout_val = QPushButton (_("Valider"), self)
-        self.bout_val.setStyleSheet(valider_style)
-        layout_boutons.addWidget(self.bout_val)
+        self.bout_valider = QPushButton (_("Valider"), self)
+        self.bout_valider.setStyleSheet(valider_style)
+        layout_boutons.addWidget(self.bout_valider)
         # bouton effacer
-        self.bout_eff = QPushButton (_("Effacer"), self)
-        self.bout_eff.setStyleSheet(efface_bouton_style)
-        layout_boutons.addWidget(self.bout_eff)
+        self.bout_effacer = QPushButton (_("Effacer"), self)
+        self.bout_effacer.setStyleSheet(efface_bouton_style)
+        layout_boutons.addWidget(self.bout_effacer)
         # bouton Suite
         self.bout_suite = QPushButton (_("Suite"), self)
         self.bout_suite.setStyleSheet(suite_bouton_style)
@@ -125,8 +125,8 @@ class CadreDroiteHaut(QWidget):
         layout_droit_haut.addLayout(layout_boutons)
 
         # désativer les boutons
-        self.bout_val.setEnabled(False)
-        self.bout_eff.setEnabled(False)
+        self.bout_valider.setEnabled(False)
+        self.bout_effacer.setEnabled(False)
         self.bout_suite.setEnabled(False)
 
         # partie du bas - 2 images (réusssite à gauhe et score à droite)
@@ -165,8 +165,8 @@ class CadreDroiteHaut(QWidget):
         # Désactiver l'affichage des bonnes réponses
         self.Des_Affich_Rep()
         # activer/désactiver boutons 
-        self.bout_val.setEnabled(True)
-        self.bout_eff.setEnabled(True)
+        self.bout_valider.setEnabled(True)
+        self.bout_effacer.setEnabled(True)
         self.bout_suite.setEnabled(False)
     
     def Des_Affich_Rep(self) -> None:
@@ -180,8 +180,8 @@ class CadreDroiteHaut(QWidget):
         """désactiver des boutons et les entry de la frameDB"""     
         self.prenom_entree.setEnabled(False)
         self.nom_entree.setEnabled(False)
-        self.bout_val.setEnabled(False)
-        self.bout_eff.setEnabled(False)
+        self.bout_valider.setEnabled(False)
+        self.bout_effacer.setEnabled(False)
         self.bout_suite.setEnabled(False)
         self.nbre_rep.setStyleSheet("color: grey;font-size: 30px")
         
@@ -208,8 +208,8 @@ class CadreDroiteHaut(QWidget):
         # effacer réponses
         self.effacer_reponses()        
         # activer boutons 
-        self.bout_val.setEnabled(True)
-        self.bout_eff.setEnabled(True)
+        self.bout_valider.setEnabled(True)
+        self.bout_effacer.setEnabled(True)
         self.bout_suite.setEnabled(True)   
         
 # ----------------------------------------------------
@@ -220,7 +220,7 @@ if __name__ == "__main__":
     fenetre = CadreDroiteHaut(None)
     fenetre.prenom_entree.setEnabled(True)
     fenetre.nom_entree.setEnabled(True)
-    fenetre.bout_val.setEnabled(True)
-    fenetre.bout_eff.setEnabled(False)
+    fenetre.bout_valider.setEnabled(True)
+    fenetre.bout_effacer.setEnabled(False)
     fenetre.bout_suite.setEnabled(False)    
     app.exec()

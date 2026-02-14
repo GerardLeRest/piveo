@@ -96,16 +96,16 @@ class ChoixOrganisme(QWidget):
             fichier_config = "ConfigParlement.json"
         # charger la configuration choisie
         try:
-            chemin_config = USER_BASE / "config" / fichier_config
+            chemin_config = USER_BASE / "configurations_json" / fichier_config
             with open(chemin_config, "r", encoding="utf-8") as f:
-                config = json.load(f)
+                configuration_json = json.load(f)
         except Exception as e:
             print(f"Erreur lors du chargement de la configuration : {e}")
             return
         # Chemin COMPLET vers la base de données
-        chemin_bdd = USER_BASE / "BaseDonnees" / config["BaseDonnees"]
-        conn = sqlite3.connect(chemin_bdd)
+        chemin_bdd = USER_BASE / "BaseDonnees" / configuration_json["BaseDonnees"]
+        conn = sqlite3.connect(chemin_bdd) # connexion à la BDD
         # Lancement de la fenêtre principale
-        self.fenetre_principale = Fenetre(config, conn)
+        self.fenetre_principale = Fenetre(configuration_json, conn)
         self.fenetre_principale.show()
         self.close()

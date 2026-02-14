@@ -4,7 +4,7 @@ from pathlib import Path
 APP_NAME = "piveo"
 USER_BASE = Path.home() / ".local" / APP_NAME
 
-def init_user_data() -> None:
+def init_donnees_utiliisateurs() -> None:
     """
     Initialise les données utilisateur uniquement si ~/.local/piveo n'existe pas.
     Si le dossier existe déjà, on ne touche à rien.

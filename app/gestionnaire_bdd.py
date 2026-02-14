@@ -13,7 +13,7 @@ Ce module :
 import sqlite3
 
 
-class ModifierBDD:
+class GestionnaireBdd:
     """Classe de manipulation des données de la base"""
 
     def __init__(self, conn: sqlite3.Connection):
@@ -32,7 +32,7 @@ class ModifierBDD:
     def charger_personnes(self):
         """
         Charge toutes les personnes depuis la base de données
-        et les stocke dans self.liste_ personnes.
+        et les stocke dans .
         """
         self.liste_personnes.clear()
         self.curs.execute("""

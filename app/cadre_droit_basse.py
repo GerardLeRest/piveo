@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*
 
 """
@@ -8,7 +8,7 @@
 """
 
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QRadioButton, QPushButton, QGridLayout, QLabel, QComboBox, QCheckBox, QButtonGroup
-from app.modifier_BDD import ModifierBDD
+from app.gestionnaire_bdd import GestionnaireBdd
 from PySide6.QtWidgets import QApplication
 from app.textes_interface import libelle
 from builtins import _
@@ -16,12 +16,12 @@ import sys
 
 class CadreDroitBasse (QWidget):
     """ Créer la partie droite basse de l'interface """
-    def __init__(self, config, modifier_BDD, fenetre = None ):
+    def __init__(self, configuration_json, gestionnaire_bdd, fenetre = None ):
         """Constructeur de la frame de droite et de ses éléments"""
         # constructeur de la classe parente
         super().__init__(fenetre)
-        self.config = config # configuration de l'interface - json
-        self.modif_BDD = modifier_BDD
+        self.configuration_json = configuration_json # configuration de l'interface - json
+        self.modif_BDD = gestionnaire_bdd
         self.liste_personnes = []  # liste des élèves de la classe sélectionnée
         self.liste_specialites = []  # liste des options des élèves de la classese
 
@@ -55,8 +55,8 @@ class CadreDroitBasse (QWidget):
         layout_Grille = QGridLayout()
         layout_Grille.setSpacing(10)
          # labels)
-        layout_Grille.addWidget(QLabel(_(libelle(self.config["Structure"]))), 0, 0)
-        layout_Grille.addWidget(QLabel(_(libelle(self.config["Specialite"]))), 0, 1)
+        layout_Grille.addWidget(QLabel(_(libelle(self.configuration_json["Structure"]))), 0, 0)
+        layout_Grille.addWidget(QLabel(_(libelle(self.configuration_json["Specialite"]))), 0, 1)
         ## ComboBox
         self.comboBox_Gauche = QComboBox()
         self.comboBox_droite = QComboBox()
@@ -109,15 +109,15 @@ class CadreDroitBasse (QWidget):
             }
         """
         # Créer le bouton "Valider"
-        self.bouton_Val = QPushButton(_("Valider"))
-        self.bouton_Val.setFixedWidth(120)
-        self.bouton_Val.setStyleSheet(validerStyle)
-        self.bouton_Val.clicked.connect(self.config_rechercher)
+        self.bouton_valider = QPushButton(_("Valider"))
+        self.bouton_valider.setFixedWidth(120)
+        self.bouton_valider.setStyleSheet(validerStyle)
+        self.bouton_valider.clicked.connect(self.config_rechercher)
 
         # Centrer le bouton
         layout_bouton = QHBoxLayout()
         layout_bouton.addStretch()
-        layout_bouton.addWidget(self.bouton_Val)
+        layout_bouton.addWidget(self.bouton_valider)
         layout_bouton.addStretch()
 
         # Ajouter au layout principal du bas
@@ -134,13 +134,13 @@ class CadreDroitBasse (QWidget):
     def liste_des_structures(self) -> list:
         """Renvoie la liste des structures de l'organisme"""
         structures = self.modif_BDD.lister_structures()
-        if self.config["Organisme"] == "Ecole":
+        if self.configuration_json["Organisme"] == "Ecole":
             phrase = _("- choisir une %(structure)s -") % {
-                "structure": self.config["Structure"]
+                "structure": self.configuration_json["Structure"]
                 }
         else:
             phrase = _("- choisir un %(structure)s -") % {
-                "structure": self.config["Structure"]
+                "structure": self.configuration_json["Structure"]
                 }
         return [phrase] + structures
 
@@ -221,6 +221,6 @@ if __name__ == '__main__':
     "BaseDonnees": "salaries.db",
     "CheminPhotos": "photos/salaries/"
     }
-    fenetre = CadreDroitBasse(config=config)
+    fenetre = CadreDroitBasse(configuration=config)
     fenetre.show()
     app.exec()
