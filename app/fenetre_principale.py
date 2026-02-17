@@ -10,7 +10,7 @@ import random, copy
 from pathlib import Path
 from app.cadre_gauche import *
 from app.cadre_droit_haut import *
-from app.cadre_droit_basse import *
+from app.cadre_droit_bas import *
 from builtins import _
 from PySide6.QtWidgets import (
     QMainWindow, QWidget,
@@ -41,7 +41,7 @@ class Fenetre(QMainWindow):
         # Instance UNIQUE de ModifierBDD
         self.gestionnaire_bdd = GestionnaireBdd(self.connexion_json)
         # Frames (on passe conn ou modifierBDD)
-        self.cadre_dr_bas = CadreDroitBasse(configuration_json, self.gestionnaire_bdd, self)
+        self.cadre_dr_bas = CadreDroitBas(configuration_json, self.gestionnaire_bdd, self)
         self.cadre_dr_haut = CadreDroiteHaut(self.configuration_json, self)
         self.cadre_ga = CadreGauche(
             self.cadre_dr_bas.liste_personnes,

@@ -15,5 +15,5 @@ def init_donnees_utiliisateurs() -> None:
     if USER_BASE.exists():
         return
 
-    # Sinon, installation complète
+    # Sinon, installation complète des ressources
     shutil.copytree(resources_base, USER_BASE)

@@ -14,7 +14,7 @@ from app.textes_interface import libelle
 from builtins import _
 import sys
 
-class CadreDroitBasse (QWidget):
+class CadreDroitBas (QWidget):
     """ Créer la partie droite basse de l'interface """
     def __init__(self, configuration_json, gestionnaire_bdd, fenetre = None ):
         """Constructeur de la frame de droite et de ses éléments"""
@@ -221,6 +221,6 @@ if __name__ == '__main__':
     "BaseDonnees": "salaries.db",
     "CheminPhotos": "photos/salaries/"
     }
-    fenetre = CadreDroitBasse(configuration=config)
+    fenetre = CadreDroitBas(configuration=config)
     fenetre.show()
     app.exec()

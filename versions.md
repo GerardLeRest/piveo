@@ -34,3 +34,6 @@ version 1.5.4 (release)
 version 1.5.5
 
 - traduction des noms anglais -> noms français
+
+version 1.5.6
+README.md (Anglais) + README.md (français)

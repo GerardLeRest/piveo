@@ -1,76 +1,74 @@
 # Piveo
 
-## Fonction du projet
+Documentation en français: [Documentation Piveo](README-fr.md)
 
-MémoVue est une application éducative développée en Python avec une interface graphique PySide6 pour les écoles, les entreprises et les parlementaires
-Elle permet d’apprendre ou de retrouver les noms et prénoms de personnes à partir d'une base de données SQLite3.
+## Project Purpose
+
+Piveo is an educational application developed in Python with a PySide6 graphical interface for schools, businesses, and parliamentary institutions.
+It allows users to learn or recall people’s first and last names from a SQLite3 database.
 
 <p align="center">
-  <img src="ressources/fichiers/images/accueil.png" alt="Accueil">
+  <img src="ressources/fichiers/images/accueil.png" alt="Home">
 </p>
 
-## Fonctionnement
+## How It Works
 
-L'interface comporte trois zones :  
+The interface has three areas:  
 
-- **Zone gauche** : affiche les informations sur la personne.  
-- **Zone en haut à droite** : permet de répondre aux questions.  
-- **Zone en bas à droite** : permet d'effectuer les réglages (n'oubliez pas le bouton **Valider** !).  
+- **Left area**: displays information about the person.  
+- **Top‑right area**: used to answer questions.  
+- **Bottom‑right area**: used to configure settings (don’t forget the **Validate** button!).  
 
 <p align="center">
   <img src="ressources/fichiers/images/interface.png" alt="Interface">
 </p>
 
-De bas en haut, dans la zone en bas à droite :  
+From bottom to top, in the bottom‑right area:  
 
-1. Sélection de ce que l'on souhaite afficher :  
-   - prénom et nom  
-   - prénom seul  
-   - nom seul  
-2. Activation optionnelle du **mode aléatoire** (présentation dans le désordre).  
-3. Choix du **Département** puis de la **Fonction** via les deux listes déroulantes (*combobox*).  
-4. Choix du **mode d’utilisation** :  
-   - **Apprentissage** : affichage des personnes et de leurs informations.  
-   - **Test écrit** : l’utilisateur doit saisir les noms ou prénoms.  
-   - **Test oral** : affichage d’une photo, l’utilisateur cherche mentalement avant de voir la correction.  
-   - **Recherche** : retrouver une personne à partir d’un nom ou prénom.  
-5. Les quatre boutons sous l’image permettent de faire défiler les personnes sélectionnées.  
-6. La zone de saisie (en haut à droite) est utilisée dans les tests écrits et pour certaines recherches.
+1. Selection of what to display:  
+   - first name and last name  
+   - first name only  
+   - last name only  
+2. Optional activation of **random mode** (shuffled order).  
+3. Choice of ***Structure** (e.g., class) then **Specialty** (e.g., option) via the two drop‑down lists (*comboboxes*).  
+4. Choice of **usage mode**:  
+   - **Learning**: displays people and their information.  
+   - **Mental test**: when a photo appears, the user guesses mentally before seeing the answer.
+   - **Written test**: the user must type the names and/or first names using the two fields at the top right.  
+   - **Search**: find one or more people by first or last name.  
+5. The four buttons below the image allow browsing through the selected people.  
+6. The input area (top right) is used for written tests and searches.
 
-Le programme utilise:
+The folder **~/.local/piveo** contains photos, databases, and configuration files ("json").
 
-- Trois bases de données SQLite (`eleves.db`, `deputes.db` ou `salaries.db` à la racine du projet).  
-- Des images des personnes.
-- des fichiers d'initialisation CSV.
+Three organizations are provided by default (School, Parliament, Company), but you can add a custom organization (e.g., sports club) by creating your own database, images, and CSV files.  
+The organization is selected at startup via **Piveo.pyw**.
 
-Trois organismes sont fournis par défaut (Établissement scolaire, Parlement, Entreprise), mais il est possible d’ajouter un organisme personnalisé (ex. club de sport) en créant sa propre base, ses images et ses fichiers CSV.  
-Le choix de l’organisme se fait au lancement, via **Piveo.pyw**.
+## Video
 
-## Vidéo
-
-[Vidéo de présentation de Piveo](https://youtu.be/upmGYy93n2w)
+[Piveo presentation video](https://youtu.be/upmGYy93n2w)
 
 ## Installation
 
-### 🔗 Depuis les sources
+### 🔗 From source
 
-1. **Cloner le dépôt**  
+1. **Clone the repository**  
    
    ```bash
    git clone https://github.com/GerardLeRest/Piveo
    cd Fenetre
    ```
 
-2. **Créer un environnement virtuel**  
-   `venv` doit être installé. Ici, *mon_env* est le nom choisi pour l'environnement Python.  
+2. **Create a virtual environment**  
+   `venv` must be installed. Here, *mon_env* is the chosen name for the Python environment.  
    
    ```bash
    python3 -m venv mon_env
    source mon_env/bin/activate
    ```
 
-3. **Installer la dépendance**  
-   MémoVue utilise la bibliothèque **PySide6** pour l’interface graphique :  
+3. **Install the dependency**  
+   Piveo uses the **PySide6** library for the graphical interface:  
    
    ```bash
    pip install pyside6
@@ -78,15 +76,14 @@ Le choix de l’organisme se fait au lancement, via **Piveo.pyw**.
 
 ### 🪟 Windows
 
-- Aller sur https://github.com/GerardLeRest/Piveo/releases/
-- Sélectionner et télécharger "PiveoSetup-1.1.1.exe"  
-- Suivre les instructions et installer-le sur votre poste Windows.
-- Lancer le logiciel depuis les programmes ou depuis le Bureau
-- 
+- Go to https://github.com/GerardLeRest/Piveo/releases/
+- Select and download "PiveoSetup-1.1.1.exe"  
+- Follow the instructions to install it on your Windows system.
+- Launch the software from the Programs menu or from the Desktop
 
-### 🐧GNU/Linux
+### 🐧 GNU/Linux
 
-#### 1. Créer un dossier de travail
+#### 1. Create a working folder
 
 ```bash
 mkdir -p ~/Piveo
@@ -94,24 +91,24 @@ mkdir -p ~/Piveo
 
 ---
 
-#### 2. Se placer dans le dossier de téléchargement
+#### 2. Go to the Downloads folder
 
 ```bash
-cd ~/Téléchargements
+cd ~/Downloads
 ```
 
 ---
 
-#### 3. Télécharger l’archive AppImage
+#### 3. Download the AppImage archive
 
-Rendez-vous sur la page des releases GitHub :  
+Go to the GitHub releases page:  
 https://github.com/GerardLeRest/Piveo/releases
 
-#### Téléchargez la **dernière archive AppImage**, par exemple :
+Download the **latest AppImage archive**, for example:
 
-Piveo-x.x.x-_x86_64.AppImage (x.x.x sont à remplacer par 2.2.1 pour la version 2.2.1, par exemple)
+Piveo-x.x.x-_x86_64.AppImage (replace x.x.x with 2.2.1 for version 2.2.1, for example)
 
-#### 4. Décompresser l’archive
+#### 4. Extract the archive
 
 ```bash
 tar -xf Piveo-x.x.x-_x86_64.AppImage.tar.xz
@@ -119,82 +116,70 @@ tar -xf Piveo-x.x.x-_x86_64.AppImage.tar.xz
 
 ---
 
-#### 5. Copier les fichiers dans le dossier Piveo
+#### 5. Copy the files into the Piveo folder
 
 ```bash
-cp -r ~/Téléchargements/Piveo-x.x.x-_x86_64.AppImage/. ~/Piveo
+cp -r ~/Downloads/Piveo-x.x.x-_x86_64.AppImage/. ~/Piveo
 ```
 
-On peut également utiliser le dossier /opt au lieu de ~/Piveo de  qui est spécialement conçu pour ce genre d'installation.
+You can also use the folder /opt/piveo instead of ~/Piveo, which is also intended for this type of installation.
 
 ---
 
-#### 6. Vérifier le contenu
+#### 6. Make the AppImage executable
 
 ```bash
-ls ~/Piveo
-```
-
-Le dossier doit contenir :
-
-- l’AppImage **Piveo_1.2.0_x86_64.AppImage**
-- **six fichiers**
-- le dossier **`fichiers`**
-
----
-
-#### 7. Rendre l’AppImage exécutable
-
-```bash
-chmod +x ~/Piveo-x.x.x-_x86_64.AppImage
+chmod +x ~/Piveo/Piveo-x.x.x-_x86_64.AppImage
 ```
 
 ---
 
-#### 8. Lancer le logiciel
+#### 7. Launch the software
 
-Se rendre dans le dossier ~/Piveo:
+Go to the ~/Piveo folder:
 
 ```bash
 cd ~/Piveo
 ```
 
-Lancer Piveo:
+Launch Piveo:
 
 ```bash
-./Piveo_1.2.0_x86_64.AppImage
+./Piveo-x.x.x-_x86_64.AppImage
 ```
+
+or double‑click the icon
 
 ---
 
 <p align="center">
-  <img src="fichiers/images/piveo.png" alt="Icone">
+  <img src="fichiers/images/piveo.png" alt="Icon">
 </p>
 
-## (Optionnel) Intégration au menu du système
+## (Optional) System menu integration
 
-Vous pouvez installer **Alacarte**, qui permet d’ajouter facilement Piveo au menu des applications :
+You can install **Alacarte**, which makes it easy to add Piveo to the applications menu:
 
 ```bash
 sudo apt install alacarte
 ```
 
-## Remarques
+## Notes
 
-- Compatible Python 3.8+  
-- Testé sous Ubuntu et Windows  
-- L’application est en cours d’amélioration (v1.0.0)
+- Compatible with Python 3.8+  
+- Tested on Ubuntu and Windows  
+- The application is under continuous improvement (v1.0.0)
 
-## Liens
+## Links
 
-- [Site internet](https://gerardlerest.github.io/piveo/)  
-- [Dépôt GitHub](https://github.com/GerardLeRest/Piveo)
-- [page wiki](https://doc.ubuntu-fr.org/Piveo)
+- [Website](https://gerardlerest.github.io/piveo/)  
+- [GitHub repository](https://github.com/GerardLeRest/Piveo)
+- [Wiki page](https://doc.ubuntu-fr.org/Piveo)
 
-## Licence & photos
+## License & photos
 
-Ce projet est distribué sous licence **GPL-v3**.  
+This project is distributed under the **GPL‑v3** license.  
 © 2026 Gérard LE REST  
 
-Les portraits ont été générés par une intelligence artificielle et sont utilisés dans un cadre pédagogique non commercial.  
+The portraits were generated by artificial intelligence and are used in a non‑commercial educational context.  
 *"Image by Generated Photos (https://generated.photos), used with permission."*
