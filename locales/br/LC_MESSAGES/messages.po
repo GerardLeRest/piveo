@@ -1,121 +1,172 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Piveo\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-17 15:20+0100\n"
+"Language: br\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: br\n"
 
-msgid "Piveo"
-msgstr "Piveo"
-
-msgid "Mode de fonctionnement"
-msgstr "Mod da vont en-dro"
-
-msgid "École"
-msgstr "Skol"
-
-msgid "Entreprise"
-msgstr "Embregerezh"
-
-msgid "Parlement"
-msgstr "Parlamant"
-
-msgid "OK"
-msgstr "Mat eo"
-
+#: ../app/cadre_droit_bas.py:34
 msgid "Apprentissage"
 msgstr "Deskadurezh"
 
+#: ../app/cadre_droit_bas.py:35
 msgid "Test mental"
 msgstr "Taol-esae spered"
 
+#: ../app/cadre_droit_bas.py:36
 msgid "Test ecrit"
 msgstr "Taol-esae skrivet"
 
+#: ../app/cadre_droit_bas.py:37
 msgid "Rechercher"
 msgstr "Klask"
 
+#: ../app/cadre_droit_bas.py:39
+msgid "Faire défiler les élèves"
+msgstr "Lakaat ar skolidi da vont en-dro"
+
+#: ../app/cadre_droit_bas.py:40
+msgid "Deviner mentalement lorsque les noms sont masqués"
+msgstr "Divinout gant ar spered pa vez kuzhet an anvioù"
+
+#: ../app/cadre_droit_bas.py:41
+msgid "Test écrit avec les deux champs ci-dessus"
+msgstr "Taol-esae skrivet gant an daou vaezienn a-us"
+
+#: ../app/cadre_droit_bas.py:42
+msgid "Rechercher un ou plusieurs personnes avec les champs ci-dessus"
+msgstr "Klask unan pe meur a zen gant ar vaeziennoù a-us"
+
+#: ../app/cadre_droit_bas.py:78
 msgid "Aléatoire"
 msgstr "Dargouezhek"
 
+#: ../app/cadre_droit_bas.py:84
 msgid "Prenom+Nom"
 msgstr "Anv-bihan + Anv"
 
+#: ../app/cadre_droit_bas.py:85 ../app/fenetre_principale.py:363
 msgid "Prenom"
 msgstr "Anv-bihan"
 
+#: ../app/cadre_droit_bas.py:86 ../app/cadre_droit_haut.py:43
+#: ../app/cadre_gauche.py:50 ../app/fenetre_principale.py:365
 msgid "Nom"
 msgstr "Anv"
 
+#: ../app/cadre_droit_bas.py:117 ../app/cadre_droit_haut.py:111
 msgid "Valider"
 msgstr "Kadarnaat"
 
+#: ../app/cadre_droit_bas.py:143
+#, python-format
 msgid "- choisir une %(structure)s -"
 msgstr "- dibab ur %(structure)s -"
 
+#: ../app/cadre_droit_bas.py:147
+#, python-format
 msgid "- choisir un %(structure)s -"
 msgstr "- dibab un %(structure)s -"
 
+#: ../app/cadre_droit_haut.py:29 ../app/cadre_gauche.py:44
 msgid "Prénom"
 msgstr "Anv-bihan"
 
+#: ../app/cadre_droit_haut.py:40 ../app/fenetre_principale.py:161
 msgid "Indiquez votre prénom"
 msgstr "Merkit hoc’h anv-bihan"
 
+#: ../app/cadre_droit_haut.py:54 ../app/fenetre_principale.py:162
 msgid "Indiquez votre nom"
 msgstr "Merkit hoc’h anv"
 
+#: ../app/cadre_droit_haut.py:115
 msgid "Effacer"
 msgstr "Diverkañ"
 
+#: ../app/cadre_droit_haut.py:119
 msgid "Suite"
 msgstr "War-lerc’h"
 
+#: ../app/cadre_droit_haut.py:142 ../app/fenetre_principale.py:388
 msgid "0/0"
 msgstr "0/0"
 
-msgid "Parti"
-msgstr "Strollad politikel"
+#: ../app/cadre_gauche.py:47
+msgid "Prénom :"
+msgstr "Anv-bihan :"
 
-msgid "Député"
-msgstr "Kannad"
+#: ../app/cadre_gauche.py:53
+msgid "Nom :"
+msgstr "Anv :"
 
-msgid "Commissions"
-msgstr "Komisionoù"
+#: ../app/cadre_gauche.py:104
+msgid "rang / effectif "
+msgstr "renk / niver"
 
-msgid "Département"
-msgstr "Departamant"
+#: ../app/choix_organisme.py:30
+msgid "Piveo"
+msgstr "Piveo"
 
-msgid "Salarié"
-msgstr "Goprad"
+#: ../app/choix_organisme.py:36
+msgid "Mode de fonctionnement"
+msgstr "Mod da vont en-dro"
 
+#: ../app/choix_organisme.py:44
+msgid "École"
+msgstr "Skol"
+
+#: ../app/choix_organisme.py:45
+msgid "Entreprise"
+msgstr "Embregerezh"
+
+#: ../app/choix_organisme.py:46
+msgid "Parlement"
+msgstr "Parlamant"
+
+#: ../app/choix_organisme.py:54
+msgid "OK"
+msgstr "Mat eo"
+
+#: ../app/fenetre_principale.py:39
 msgid "Piveo - "
 msgstr "Piveo - "
 
+#: ../app/fenetre_principale.py:73
 msgid "Menu"
 msgstr "Lañser"
 
+#: ../app/fenetre_principale.py:75
 msgid "Langues"
 msgstr "Yezhoù"
 
+#: ../app/fenetre_principale.py:97
 msgid "Licence GPL-v3"
 msgstr "Aotre-implijout GPL-v3"
 
+#: ../app/fenetre_principale.py:100
 msgid "Quitter"
 msgstr "Kuitaat"
 
+#: ../app/fenetre_principale.py:129
 msgid "Attention"
 msgstr "Diwallit"
 
+#: ../app/fenetre_principale.py:130
 msgid "Les changements se feront au prochain démarrage."
 msgstr "Ar c'hemmoù a vo lakaet e pleustr er loc'hadenn da-heul."
 
+#: ../app/fenetre_principale.py:389
 msgid "Aucun résultat"
 msgstr "Disoc'h ebet"
 
+#: ../app/fenetre_principale.py:389
 msgid "Aucune personne trouvée."
 msgstr "Den ebet kavet."
 
+#: ../app/fenetre_principale.py:408
 msgid ""
 "Ce logiciel est distribué sous licence GNU GPL version 3.\n"
 "\n"
@@ -128,20 +179,28 @@ msgid ""
 msgstr ""
 "Skignet eo ar meziant-mañ dindan aotre-implijout GNU GPL handelv 3.\n"
 "\n"
-"Gellout a rit adskignañ anezhañ ha/pe kemmañ anezhañ hervez termenoù an aotre-mañ.\n"
+"Gellout a rit adskignañ anezhañ ha/pe kemmañ anezhañ hervez termenoù an "
+"aotre-mañ.\n"
 "\n"
 "Muioc'h a ditouroù : https://www.gnu.org/licenses/gpl-3.0.html\n"
 "\n"
 "© 2026 Gérard Le Rest - ge.lerest@gmail.com"
 
+#: ../app/fenetre_principale.py:413
 msgid "GPL-v3"
 msgstr "GPL-v3"
 
-msgid "Prénom :"
-msgstr "Anv-bihan :"
+#~ msgid "Parti"
+#~ msgstr "Strollad politikel"
 
-msgid "Nom :"
-msgstr "Anv :"
+#~ msgid "Député"
+#~ msgstr "Kannad"
 
-msgid "rang / effectif "
-msgstr "renk / niver"
+#~ msgid "Commissions"
+#~ msgstr "Komisionoù"
+
+#~ msgid "Département"
+#~ msgstr "Departamant"
+
+#~ msgid "Salarié"
+#~ msgstr "Goprad"

@@ -133,7 +133,7 @@ class Fenetre(QMainWindow):
     def configurer(self) -> None:
         """ configurer l'application"""
         self.cadre_dr_haut.effacer_reponses()
-        if self.cadre_dr_bas.bouton_radio_Haut_4.isChecked(): # mode "Rechercher"
+        if self.cadre_dr_bas.bouton_rechercher.isChecked(): # mode "Rechercher"
             self.cadre_dr_haut.config_rechercher()
             # activer/désactiver zones de saisie 
             self.act_des_zones_saisies()          
@@ -179,9 +179,9 @@ class Fenetre(QMainWindow):
             self.effacer_noms_ou_prenoms(self.cadre_ga.liste_personnes, 1)
         if self.cadre_dr_bas.boutonRadioBas3.isChecked():  # Nom seul
             self.effacer_noms_ou_prenoms(self.cadre_ga.liste_personnes, 0)
-        if self.cadre_dr_bas.bouton_radiohaut2.isChecked():  # Test oral
+        if self.cadre_dr_bas.bouton_mental.isChecked():  # Test oral
             self.ajouter_blancs_listes(self.cadre_ga.liste_personnes)
-        if self.cadre_dr_bas.bouton_radio_haut3.isChecked():  # Test écrit
+        if self.cadre_dr_bas.bouton_ecrit.isChecked():  # Test écrit
             self.ajouter_blancs_listes(self.cadre_ga.liste_personnes)
             self.cadre_dr_haut.config_test_ecrit()
             self.config_test_ecrit()
@@ -219,7 +219,7 @@ class Fenetre(QMainWindow):
         
     def effacer(self) -> None:
         """Effacer après appui sur le bouton "effacer" de la frame haute droite"""
-        expression=self.cadre_ga.rang % 2 == 0 and self.cadre_dr_bas.bouton_radio_haut3.isChecked() # rang paire et test écrit
+        expression=self.cadre_ga.rang % 2 == 0 and self.cadre_dr_bas.bouton_ecrit.isChecked() # rang paire et test écrit
         if expression or self.cadre_dr_bas.bouton_radio_Haut_4: #  mode "Rechercher"
             self.cadre_dr_haut.effacer_reponses()
             self.act_des_zones_saisies()
@@ -255,7 +255,7 @@ class Fenetre(QMainWindow):
             
     def verifier_rechercher(self) -> None:
         """lancer la vérification de la réponse"""
-        if self.cadre_dr_bas.bouton_radio_haut3.isChecked(): # mode - Test écrit
+        if self.cadre_dr_bas.bouton_ecrit.isChecked(): # mode - Test écrit
             self.verifier()
         elif self.cadre_dr_bas.bouton_radio_Haut_4.isChecked(): # mode "Rechercher"
             self.rechercher()
@@ -311,7 +311,7 @@ class Fenetre(QMainWindow):
 
     def aller_a_la_suite(self,event) -> None:
         """voir la réponse et passer à la personne suivant"""
-        if self.cadre_dr_bas.bouton_radio_haut3.isChecked(): #Test écrit
+        if self.cadre_dr_bas.bouton_ecrit.isChecked(): #Test écrit
             self.cadre_dr_haut.effacer_reponses()
             if (self.cadre_ga.rang >= len(self.cadre_ga.liste_personnes)-1):
                 pass
@@ -395,7 +395,7 @@ class Fenetre(QMainWindow):
         modeGeneral = self.cadre_dr_bas.groupe_haut.checkedButton().text()
 
         if self.cadre_dr_bas.bouton_radio_bas2.isChecked():  # Prenom
-            if self.cadre_dr_bas.bouton_radio_haut3.isChecked():  # Test écrit
+            if self.cadre_dr_bas.bouton_ecrit.isChecked():  # Test écrit
                 self.verifier()
             else:
                 self.rechercher()

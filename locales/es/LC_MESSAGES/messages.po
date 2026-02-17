@@ -1,121 +1,172 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Piveo\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-17 15:20+0100\n"
+"Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 
-msgid "Piveo"
-msgstr "Piveo"
-
-msgid "Mode de fonctionnement"
-msgstr "Modo de funcionamiento"
-
-msgid "École"
-msgstr "Escuela"
-
-msgid "Entreprise"
-msgstr "Empresa"
-
-msgid "Parlement"
-msgstr "Parlamento"
-
-msgid "OK"
-msgstr "Aceptar"
-
+#: ../app/cadre_droit_bas.py:34
 msgid "Apprentissage"
 msgstr "Aprendizaje"
 
+#: ../app/cadre_droit_bas.py:35
 msgid "Test mental"
 msgstr "Prueba mental"
 
+#: ../app/cadre_droit_bas.py:36
 msgid "Test ecrit"
 msgstr "Prueba escrita"
 
+#: ../app/cadre_droit_bas.py:37
 msgid "Rechercher"
 msgstr "Buscar"
 
+#: ../app/cadre_droit_bas.py:39
+msgid "Faire défiler les élèves"
+msgstr "Recorrer los alumnos"
+
+#: ../app/cadre_droit_bas.py:40
+msgid "Deviner mentalement lorsque les noms sont masqués"
+msgstr "Adivinar mentalmente cuando los nombres están ocultos"
+
+#: ../app/cadre_droit_bas.py:41
+msgid "Test écrit avec les deux champs ci-dessus"
+msgstr "Prueba escrita con los dos campos superiores"
+
+#: ../app/cadre_droit_bas.py:42
+msgid "Rechercher un ou plusieurs personnes avec les champs ci-dessus"
+msgstr "Buscar una o varias personas con los campos superiores"
+
+#: ../app/cadre_droit_bas.py:78
 msgid "Aléatoire"
 msgstr "Aleatorio"
 
+#: ../app/cadre_droit_bas.py:84
 msgid "Prenom+Nom"
 msgstr "Nombre + Apellido"
 
+#: ../app/cadre_droit_bas.py:85 ../app/fenetre_principale.py:363
 msgid "Prenom"
 msgstr "Nombre"
 
+#: ../app/cadre_droit_bas.py:86 ../app/cadre_droit_haut.py:43
+#: ../app/cadre_gauche.py:50 ../app/fenetre_principale.py:365
 msgid "Nom"
 msgstr "Apellido"
 
+#: ../app/cadre_droit_bas.py:117 ../app/cadre_droit_haut.py:111
 msgid "Valider"
 msgstr "Confirmar"
 
+#: ../app/cadre_droit_bas.py:143
+#, python-format
 msgid "- choisir une %(structure)s -"
 msgstr "- elegir una %(structure)s -"
 
+#: ../app/cadre_droit_bas.py:147
+#, python-format
 msgid "- choisir un %(structure)s -"
 msgstr "- elegir un %(structure)s -"
 
+#: ../app/cadre_droit_haut.py:29 ../app/cadre_gauche.py:44
 msgid "Prénom"
 msgstr "Nombre"
 
+#: ../app/cadre_droit_haut.py:40 ../app/fenetre_principale.py:161
 msgid "Indiquez votre prénom"
 msgstr "Introduzca su nombre"
 
+#: ../app/cadre_droit_haut.py:54 ../app/fenetre_principale.py:162
 msgid "Indiquez votre nom"
 msgstr "Introduzca su apellido"
 
+#: ../app/cadre_droit_haut.py:115
 msgid "Effacer"
 msgstr "Borrar"
 
+#: ../app/cadre_droit_haut.py:119
 msgid "Suite"
 msgstr "Siguiente"
 
+#: ../app/cadre_droit_haut.py:142 ../app/fenetre_principale.py:388
 msgid "0/0"
 msgstr "0/0"
 
-msgid "Parti"
-msgstr "Partido"
+#: ../app/cadre_gauche.py:47
+msgid "Prénom :"
+msgstr "Nombre:"
 
-msgid "Député"
-msgstr "Diputado"
+#: ../app/cadre_gauche.py:53
+msgid "Nom :"
+msgstr "Apellido:"
 
-msgid "Commissions"
-msgstr "Comisiones"
+#: ../app/cadre_gauche.py:104
+msgid "rang / effectif "
+msgstr "rango / total"
 
-msgid "Département"
-msgstr "Departamento"
+#: ../app/choix_organisme.py:30
+msgid "Piveo"
+msgstr "Piveo"
 
-msgid "Salarié"
-msgstr "Empleado"
+#: ../app/choix_organisme.py:36
+msgid "Mode de fonctionnement"
+msgstr "Modo de funcionamiento"
 
+#: ../app/choix_organisme.py:44
+msgid "École"
+msgstr "Escuela"
+
+#: ../app/choix_organisme.py:45
+msgid "Entreprise"
+msgstr "Empresa"
+
+#: ../app/choix_organisme.py:46
+msgid "Parlement"
+msgstr "Parlamento"
+
+#: ../app/choix_organisme.py:54
+msgid "OK"
+msgstr "Aceptar"
+
+#: ../app/fenetre_principale.py:39
 msgid "Piveo - "
 msgstr "Piveo - "
 
+#: ../app/fenetre_principale.py:73
 msgid "Menu"
 msgstr "Menú"
 
+#: ../app/fenetre_principale.py:75
 msgid "Langues"
 msgstr "Idiomas"
 
+#: ../app/fenetre_principale.py:97
 msgid "Licence GPL-v3"
 msgstr "Licencia GPL-v3"
 
+#: ../app/fenetre_principale.py:100
 msgid "Quitter"
 msgstr "Salir"
 
+#: ../app/fenetre_principale.py:129
 msgid "Attention"
 msgstr "Atención"
 
+#: ../app/fenetre_principale.py:130
 msgid "Les changements se feront au prochain démarrage."
 msgstr "Los cambios se aplicarán en el próximo inicio."
 
+#: ../app/fenetre_principale.py:389
 msgid "Aucun résultat"
 msgstr "Sin resultados"
 
+#: ../app/fenetre_principale.py:389
 msgid "Aucune personne trouvée."
 msgstr "No se ha encontrado ninguna persona."
 
+#: ../app/fenetre_principale.py:408
 msgid ""
 "Ce logiciel est distribué sous licence GNU GPL version 3.\n"
 "\n"
@@ -134,14 +185,21 @@ msgstr ""
 "\n"
 "© 2026 Gérard Le Rest - ge.lerest@gmail.com"
 
+#: ../app/fenetre_principale.py:413
 msgid "GPL-v3"
 msgstr "GPL-v3"
 
-msgid "Prénom :"
-msgstr "Nombre:"
+#~ msgid "Parti"
+#~ msgstr "Partido"
 
-msgid "Nom :"
-msgstr "Apellido:"
+#~ msgid "Député"
+#~ msgstr "Diputado"
 
-msgid "rang / effectif "
-msgstr "rango / total"
+#~ msgid "Commissions"
+#~ msgstr "Comisiones"
+
+#~ msgid "Département"
+#~ msgstr "Departamento"
+
+#~ msgid "Salarié"
+#~ msgstr "Empleado"

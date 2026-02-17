@@ -1,121 +1,172 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Piveo\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-17 15:20+0100\n"
+"Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
 
-msgid "Piveo"
-msgstr "Piveo"
-
-msgid "Mode de fonctionnement"
-msgstr "Operating mode"
-
-msgid "École"
-msgstr "School"
-
-msgid "Entreprise"
-msgstr "Company"
-
-msgid "Parlement"
-msgstr "Parliament"
-
-msgid "OK"
-msgstr "OK"
-
+#: ../app/cadre_droit_bas.py:34
 msgid "Apprentissage"
 msgstr "Learning"
 
+#: ../app/cadre_droit_bas.py:35
 msgid "Test mental"
 msgstr "Mental test"
 
+#: ../app/cadre_droit_bas.py:36
 msgid "Test ecrit"
 msgstr "Written test"
 
+#: ../app/cadre_droit_bas.py:37
 msgid "Rechercher"
 msgstr "Search"
 
+#: ../app/cadre_droit_bas.py:39
+msgid "Faire défiler les élèves"
+msgstr "Browse through students"
+
+#: ../app/cadre_droit_bas.py:40
+msgid "Deviner mentalement lorsque les noms sont masqués"
+msgstr "Guess mentally when the names are hidden"
+
+#: ../app/cadre_droit_bas.py:41
+msgid "Test écrit avec les deux champs ci-dessus"
+msgstr "Written test using the two fields above"
+
+#: ../app/cadre_droit_bas.py:42
+msgid "Rechercher un ou plusieurs personnes avec les champs ci-dessus"
+msgstr "Search for one or more people using the fields above"
+
+#: ../app/cadre_droit_bas.py:78
 msgid "Aléatoire"
 msgstr "Random"
 
+#: ../app/cadre_droit_bas.py:84
 msgid "Prenom+Nom"
 msgstr "First name + Last name"
 
+#: ../app/cadre_droit_bas.py:85 ../app/fenetre_principale.py:363
 msgid "Prenom"
 msgstr "First name"
 
+#: ../app/cadre_droit_bas.py:86 ../app/cadre_droit_haut.py:43
+#: ../app/cadre_gauche.py:50 ../app/fenetre_principale.py:365
 msgid "Nom"
 msgstr "Last name"
 
+#: ../app/cadre_droit_bas.py:117 ../app/cadre_droit_haut.py:111
 msgid "Valider"
 msgstr "Confirm"
 
+#: ../app/cadre_droit_bas.py:143
+#, python-format
 msgid "- choisir une %(structure)s -"
 msgstr "- select a %(structure)s -"
 
+#: ../app/cadre_droit_bas.py:147
+#, python-format
 msgid "- choisir un %(structure)s -"
 msgstr "- select a %(structure)s -"
 
+#: ../app/cadre_droit_haut.py:29 ../app/cadre_gauche.py:44
 msgid "Prénom"
 msgstr "First name"
 
+#: ../app/cadre_droit_haut.py:40 ../app/fenetre_principale.py:161
 msgid "Indiquez votre prénom"
 msgstr "Enter your first name"
 
+#: ../app/cadre_droit_haut.py:54 ../app/fenetre_principale.py:162
 msgid "Indiquez votre nom"
 msgstr "Enter your last name"
 
+#: ../app/cadre_droit_haut.py:115
 msgid "Effacer"
 msgstr "Clear"
 
+#: ../app/cadre_droit_haut.py:119
 msgid "Suite"
 msgstr "Next"
 
+#: ../app/cadre_droit_haut.py:142 ../app/fenetre_principale.py:388
 msgid "0/0"
 msgstr "0/0"
 
-msgid "Parti"
-msgstr "Party"
+#: ../app/cadre_gauche.py:47
+msgid "Prénom :"
+msgstr "First name:"
 
-msgid "Député"
-msgstr "Member of Parliament"
+#: ../app/cadre_gauche.py:53
+msgid "Nom :"
+msgstr "Last name:"
 
-msgid "Commissions"
-msgstr "Committees"
+#: ../app/cadre_gauche.py:104
+msgid "rang / effectif "
+msgstr "rank / total"
 
-msgid "Département"
-msgstr "Department"
+#: ../app/choix_organisme.py:30
+msgid "Piveo"
+msgstr "Piveo"
 
-msgid "Salarié"
-msgstr "Employee"
+#: ../app/choix_organisme.py:36
+msgid "Mode de fonctionnement"
+msgstr "Operating mode"
 
+#: ../app/choix_organisme.py:44
+msgid "École"
+msgstr "School"
+
+#: ../app/choix_organisme.py:45
+msgid "Entreprise"
+msgstr "Company"
+
+#: ../app/choix_organisme.py:46
+msgid "Parlement"
+msgstr "Parliament"
+
+#: ../app/choix_organisme.py:54
+msgid "OK"
+msgstr "OK"
+
+#: ../app/fenetre_principale.py:39
 msgid "Piveo - "
 msgstr "Piveo - "
 
+#: ../app/fenetre_principale.py:73
 msgid "Menu"
 msgstr "Menu"
 
+#: ../app/fenetre_principale.py:75
 msgid "Langues"
 msgstr "Languages"
 
+#: ../app/fenetre_principale.py:97
 msgid "Licence GPL-v3"
 msgstr "GPL-v3 License"
 
+#: ../app/fenetre_principale.py:100
 msgid "Quitter"
 msgstr "Quit"
 
+#: ../app/fenetre_principale.py:129
 msgid "Attention"
 msgstr "Warning"
 
+#: ../app/fenetre_principale.py:130
 msgid "Les changements se feront au prochain démarrage."
 msgstr "Changes will take effect at the next startup."
 
+#: ../app/fenetre_principale.py:389
 msgid "Aucun résultat"
 msgstr "No results"
 
+#: ../app/fenetre_principale.py:389
 msgid "Aucune personne trouvée."
 msgstr "No person found."
 
+#: ../app/fenetre_principale.py:408
 msgid ""
 "Ce logiciel est distribué sous licence GNU GPL version 3.\n"
 "\n"
@@ -134,14 +185,21 @@ msgstr ""
 "\n"
 "© 2026 Gérard Le Rest - ge.lerest@gmail.com"
 
+#: ../app/fenetre_principale.py:413
 msgid "GPL-v3"
 msgstr "GPL-v3"
 
-msgid "Prénom :"
-msgstr "First name:"
+#~ msgid "Parti"
+#~ msgstr "Party"
 
-msgid "Nom :"
-msgstr "Last name:"
+#~ msgid "Député"
+#~ msgstr "Member of Parliament"
 
-msgid "rang / effectif "
-msgstr "rank / total"
+#~ msgid "Commissions"
+#~ msgstr "Committees"
+
+#~ msgid "Département"
+#~ msgstr "Department"
+
+#~ msgid "Salarié"
+#~ msgstr "Employee"

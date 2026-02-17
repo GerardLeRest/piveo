@@ -31,23 +31,28 @@ class CadreDroitBas (QWidget):
         layout_bas_droit.setSpacing(10)
         layout_boutons_radios_haut = QHBoxLayout()
         # boutons radio des modes
-        self.bouton_radio_haut1 = QRadioButton(_("Apprentissage"))
-        self.bouton_radiohaut2 = QRadioButton(_("Test mental"))
-        self.bouton_radio_haut3 = QRadioButton(_("Test ecrit"))
-        self.bouton_radio_Haut_4 = QRadioButton(_("Rechercher"))
+        self.bouton_apprentissage = QRadioButton(_("Apprentissage"))
+        self.bouton_mental = QRadioButton(_("Test mental"))
+        self.bouton_ecrit = QRadioButton(_("Test ecrit"))
+        self.bouton_rechercher = QRadioButton(_("Rechercher"))
+        # toolTips
+        self.bouton_apprentissage.setToolTip(_("Faire défiler les élèves"))
+        self.bouton_mental.setToolTip(_("Deviner mentalement lorsque les noms sont masqués"))
+        self.bouton_ecrit.setToolTip(_("Test écrit avec les deux champs ci-dessus"))
+        self.bouton_rechercher.setToolTip(_("Rechercher un ou plusieurs personnes avec les champs ci-dessus"))
         # regroupement
         self.groupe_haut = QButtonGroup()
-        self.groupe_haut.addButton(self.bouton_radio_haut1)
-        self.groupe_haut.addButton(self.bouton_radiohaut2)
-        self.groupe_haut.addButton(self.bouton_radio_haut3)
-        self.groupe_haut.addButton(self.bouton_radio_Haut_4)
+        self.groupe_haut.addButton(self.bouton_apprentissage)
+        self.groupe_haut.addButton(self.bouton_mental)
+        self.groupe_haut.addButton(self.bouton_ecrit)
+        self.groupe_haut.addButton(self.bouton_rechercher)
         # insetion dans le layout
-        layout_boutons_radios_haut.addWidget(self.bouton_radio_haut1)
-        layout_boutons_radios_haut.addWidget(self.bouton_radiohaut2)
-        layout_boutons_radios_haut.addWidget(self.bouton_radio_haut3)
-        layout_boutons_radios_haut.addWidget(self.bouton_radio_Haut_4)
+        layout_boutons_radios_haut.addWidget(self.bouton_apprentissage)
+        layout_boutons_radios_haut.addWidget(self.bouton_mental)
+        layout_boutons_radios_haut.addWidget(self.bouton_ecrit)
+        layout_boutons_radios_haut.addWidget(self.bouton_rechercher)
          #bouton radi 1 est sélectionné
-        self.bouton_radio_haut1.setChecked(True)
+        self.bouton_apprentissage.setChecked(True)
         #rattachement au layout principal de la classe
         layout_bas_droit.addLayout(layout_boutons_radios_haut)
         
@@ -161,9 +166,9 @@ class CadreDroitBas (QWidget):
             self.comboBox_Gauche.setEnabled(True)
             self.comboBox_droite.setEnabled(True)
             # activer les radiobuttons
-            self.bouton_radio_haut1.setEnabled(True)
-            self.bouton_radiohaut2.setEnabled(True)
-            self.bouton_radio_haut3.setEnabled(True)
+            self.bouton_apprentissage.setEnabled(True)
+            self.bouton_mental.setEnabled(True)
+            self.bouton_ecrit.setEnabled(True)
             self.bouton_radio_Haut_4.setEnabled(True)
 
     def definir_ordre_defilement(self) -> None :

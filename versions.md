@@ -19,11 +19,11 @@ version 1.3.4:
 
 - affichage de la 'cross.png' du 'check.png' fonctionne
 
-version 1.4.4:
+version 1.4.4: (erreur N° -> 1.4.0)
 
 - réorganisation des fichiers/dossier: app, ressources, Piveo.pyw, README.md, requirements.txt, version.md, mon_env
 
-version 1.5.4 (release)
+version 1.5.4 (release) (erreur N° -> 1.5.0)
 
 - création des dossiers fichiers, conf, data et le fichier configurationLangue.json, s'il ne sont pas présents dans le fichier ~/.local/piveo. 
 
@@ -31,9 +31,15 @@ version 1.5.4 (release)
 
 - correction des erreurs de traduction
 
-version 1.5.5
+version 1.6.0
 
 - traduction des noms anglais -> noms français
 
-version 1.5.6
-README.md (Anglais) + README.md (français)
+version 1.6.1
+
+README.md (Anglais) + README-fr.md (français)
+
+version 1.6.2 (release)
+
+ajout de Tooltips et leurs traductions
+

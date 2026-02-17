@@ -1,0 +1,147 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Piveo\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+msgid "Piveo"
+msgstr "Piveo"
+
+msgid "Mode de fonctionnement"
+msgstr "Operating mode"
+
+msgid "École"
+msgstr "School"
+
+msgid "Entreprise"
+msgstr "Company"
+
+msgid "Parlement"
+msgstr "Parliament"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Apprentissage"
+msgstr "Learning"
+
+msgid "Test mental"
+msgstr "Mental test"
+
+msgid "Test ecrit"
+msgstr "Written test"
+
+msgid "Rechercher"
+msgstr "Search"
+
+msgid "Aléatoire"
+msgstr "Random"
+
+msgid "Prenom+Nom"
+msgstr "First name + Last name"
+
+msgid "Prenom"
+msgstr "First name"
+
+msgid "Nom"
+msgstr "Last name"
+
+msgid "Valider"
+msgstr "Confirm"
+
+msgid "- choisir une %(structure)s -"
+msgstr "- select a %(structure)s -"
+
+msgid "- choisir un %(structure)s -"
+msgstr "- select a %(structure)s -"
+
+msgid "Prénom"
+msgstr "First name"
+
+msgid "Indiquez votre prénom"
+msgstr "Enter your first name"
+
+msgid "Indiquez votre nom"
+msgstr "Enter your last name"
+
+msgid "Effacer"
+msgstr "Clear"
+
+msgid "Suite"
+msgstr "Next"
+
+msgid "0/0"
+msgstr "0/0"
+
+msgid "Parti"
+msgstr "Party"
+
+msgid "Député"
+msgstr "Member of Parliament"
+
+msgid "Commissions"
+msgstr "Committees"
+
+msgid "Département"
+msgstr "Department"
+
+msgid "Salarié"
+msgstr "Employee"
+
+msgid "Piveo - "
+msgstr "Piveo - "
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Langues"
+msgstr "Languages"
+
+msgid "Licence GPL-v3"
+msgstr "GPL-v3 License"
+
+msgid "Quitter"
+msgstr "Quit"
+
+msgid "Attention"
+msgstr "Warning"
+
+msgid "Les changements se feront au prochain démarrage."
+msgstr "Changes will take effect at the next startup."
+
+msgid "Aucun résultat"
+msgstr "No results"
+
+msgid "Aucune personne trouvée."
+msgstr "No person found."
+
+msgid ""
+"Ce logiciel est distribué sous licence GNU GPL version 3.\n"
+"\n"
+"Vous pouvez le redistribuer et/ou le modifier selon les termes de cette "
+"licence.\n"
+"\n"
+"Plus d'informations : https://www.gnu.org/licenses/gpl-3.0.html\n"
+"\n"
+"© 2026 Gérard Le Rest - ge.lerest@gmail.com"
+msgstr ""
+"This software is distributed under the GNU GPL version 3 license.\n"
+"\n"
+"You may redistribute it and/or modify it under the terms of this license.\n"
+"\n"
+"More information: https://www.gnu.org/licenses/gpl-3.0.html\n"
+"\n"
+"© 2026 Gérard Le Rest - ge.lerest@gmail.com"
+
+msgid "GPL-v3"
+msgstr "GPL-v3"
+
+msgid "Prénom :"
+msgstr "First name:"
+
+msgid "Nom :"
+msgstr "Last name:"
+
+msgid "rang / effectif "
+msgstr "rank / total"
