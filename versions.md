@@ -33,7 +33,7 @@ version 1.5.4 (release) (erreur N° -> 1.5.0)
 
 version 1.6.0
 
-- traduction des noms anglais -> noms français
+- traduction des noms de variables, noms anglais ->français
 
 version 1.6.1
 
@@ -42,4 +42,3 @@ README.md (Anglais) + README-fr.md (français)
 version 1.6.2 (release)
 
 ajout de Tooltips et leurs traductions
-

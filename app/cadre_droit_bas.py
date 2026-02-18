@@ -152,7 +152,7 @@ class CadreDroitBas (QWidget):
     def config_rechercher(self) -> None:
         """activer/désactiver les listes les comboBox, des radiobuttons
            et des labels"""
-        if self.bouton_radio_Haut_4.isChecked():
+        if self.bouton_rechercher.isChecked():
             # désactiver les radiobuttons
             # self.boutonRadioHaut1.setEnabled(False)
             # self.boutonRadioHaut2.setEnabled(False)
@@ -169,7 +169,7 @@ class CadreDroitBas (QWidget):
             self.bouton_apprentissage.setEnabled(True)
             self.bouton_mental.setEnabled(True)
             self.bouton_ecrit.setEnabled(True)
-            self.bouton_radio_Haut_4.setEnabled(True)
+            self.bouton_rechercher.setEnabled(True)
 
     def definir_ordre_defilement(self) -> None :
         """Définir l'ordre de défilement"""

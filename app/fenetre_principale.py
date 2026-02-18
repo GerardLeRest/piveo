@@ -220,7 +220,7 @@ class Fenetre(QMainWindow):
     def effacer(self) -> None:
         """Effacer après appui sur le bouton "effacer" de la frame haute droite"""
         expression=self.cadre_ga.rang % 2 == 0 and self.cadre_dr_bas.bouton_ecrit.isChecked() # rang paire et test écrit
-        if expression or self.cadre_dr_bas.bouton_radio_Haut_4: #  mode "Rechercher"
+        if expression or self.cadre_dr_bas.bouton_rechercher: #  mode "Rechercher"
             self.cadre_dr_haut.effacer_reponses()
             self.act_des_zones_saisies()
 
@@ -257,7 +257,7 @@ class Fenetre(QMainWindow):
         """lancer la vérification de la réponse"""
         if self.cadre_dr_bas.bouton_ecrit.isChecked(): # mode - Test écrit
             self.verifier()
-        elif self.cadre_dr_bas.bouton_radio_Haut_4.isChecked(): # mode "Rechercher"
+        elif self.cadre_dr_bas.bouton_rechercher.isChecked(): # mode "Rechercher"
             self.rechercher()
         
     def verifier(self) -> None:

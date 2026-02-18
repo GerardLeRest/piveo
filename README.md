@@ -7,6 +7,8 @@ Documentation en français: [Documentation Piveo](README-fr.md)
 Piveo is an educational application developed in Python with a PySide6 graphical interface for schools, businesses, and parliamentary institutions.
 It allows users to learn or recall people’s first and last names from a SQLite3 database.
 
+Languages: French, English, Spanish, Breton
+
 <p align="center">
   <img src="ressources/fichiers/images/accueil.png" alt="Home">
 </p>

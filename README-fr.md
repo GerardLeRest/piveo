@@ -3,7 +3,9 @@
 ## Fonction du projet
 
 MémoVue est une application éducative développée en Python avec une interface graphique PySide6 pour les écoles, les entreprises et les parlementaires
-Elle permet d’apprendre ou de retrouver les noms et prénoms de personnes à partir d'une base de données SQLite3.
+Elle permet d’apprendre ou de retrouver les noms et prénoms de personnes à partir d'une base de données SQLite3. 
+
+Langues: Français, Anglais, Espagnol, Breton
 
 <p align="center">
   <img src="ressources/fichiers/images/accueil.png" alt="Accueil">
