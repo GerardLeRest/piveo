@@ -214,24 +214,25 @@ class CadreGauche (QWidget):
 from PySide6.QtWidgets import QApplication
 
 if __name__ == '__main__':
-    import sys
-    import gettext
-    gettext.install("piveo")
-    app = QApplication(sys.argv)
-    liste_personnes = [
-        ['Sarah', 'Fernandez', '1S1', ['CAM', 'THE'], 'fichiers/photos/1S1/Fernandez_Sarah.jpg'],
-        ['Clement', 'Henry', '1S1', ['CAM'], 'fichiers/photos/1S1/Henry_Clement.jpg'],
-        ['Emma', 'Petit', 'PSTI2D1', ['ESP'], 'fichiers/photos/PSTI2D1/Petit_Emma.jpg']
-    ]
-    config = {
-        "Organisme": "Entreprise",
-        "Structure": "Département",
-        "Personne": "Salarié",
-        "Specialite": "Fonctions",
-        "BaseDonnees": "salaries.db",
-        "CheminPhotos": "photos/salaries/"
-    }
-    fenetre = CadreGauche(liste_personnes, config)
-    fenetre.nbre_pers = len(liste_personnes)
-    fenetre.show()
-    sys.exit(app.exec_())
+#    """  import sys
+#     import gettext
+#     gettext.install("piveo")
+#     app = QApplication(sys.argv)
+#     liste_personnes = [
+#         ['Sarah', 'Fernandez', '1S1', ['CAM', 'THE'], 'fichiers/photos/1S1/Fernandez_Sarah.jpg'],
+#         ['Clement', 'Henry', '1S1', ['CAM'], 'fichiers/photos/1S1/Henry_Clement.jpg'],
+#         ['Emma', 'Petit', 'PSTI2D1', ['ESP'], 'fichiers/photos/PSTI2D1/Petit_Emma.jpg']
+#     ]
+#     config = {
+#         "Organisme": "Entreprise",
+#         "Structure": "Département",
+#         "Personne": "Salarié",
+#         "Specialite": "Fonctions",
+#         "BaseDonnees": "salaries.db",
+#         "CheminPhotos": "photos/salaries/"
+#     }
+#     fenetre = CadreGauche(liste_personnes, config)
+#     fenetre.nbre_pers = len(liste_personnes)
+#     fenetre.show()
+#     sys.exit(app.exec_()) """
+    print("Module utilisé dans l'application principale")

@@ -215,17 +215,18 @@ class CadreDroitBas (QWidget):
 # ----------------------------------------------------
 
 if __name__ == '__main__':
-    import gettext
-    gettext.install("piveo")
-    app = QApplication(sys.argv)
-    config = {
-    "Organisme": "Entreprise",
-    "Structure": "Département",
-    "Personne": "Salarié",
-    "Specialite": "Fonctions",
-    "BaseDonnees": "salaries.db",
-    "CheminPhotos": "photos/salaries/"
-    }
-    fenetre = CadreDroitBas(configuration=config)
-    fenetre.show()
-    app.exec()
+    # import gettext
+    # gettext.install("piveo")
+    # app = QApplication(sys.argv)
+    # config = {
+    # "Organisme": "Entreprise",
+    # "Structure": "Département",
+    # "Personne": "Salarié",
+    # "Specialite": "Fonctions",
+    # "BaseDonnees": "salaries.db",
+    # "CheminPhotos": "photos/salaries/"
+    # }
+    # fenetre = CadreDroitBas(configuration=config)
+    # fenetre.show()
+    # app.exec()
+    print("Module utilisé dans l'application principale")
