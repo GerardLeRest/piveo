@@ -11,11 +11,11 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QPixmap
-# from gettext import gettext as _
 from pathlib import Path
-import json, sqlite3
+import json, sqlite3, gettext
 from app.fenetre_principale import Fenetre
 from app.choix_chemin_ressources import chemin_ressources
+from builtins import _
 
 class ChoixOrganisme(QWidget):
     """Fenêtre de choix de l'organisme"""

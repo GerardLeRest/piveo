@@ -6,14 +6,17 @@ afficher la photo de l'élève sélecctionné
 et ses informations
 """
 
-import os, gettext
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QGridLayout, QLabel, QHBoxLayout, QPushButton, QSpacerItem, QSizePolicy
+import sys, gettext
+from PySide6.QtWidgets import (QWidget, QVBoxLayout, QGridLayout, QLabel,
+							  QApplication, QHBoxLayout, QPushButton, QSpacerItem, QSizePolicy)
 from PySide6.QtGui import QPixmap, QIcon
 from PySide6.QtCore import QSize, Qt
 from app.gestionnaire_bdd import  GestionnaireBdd
 from pathlib import Path
-from builtins import _
+import gettext
 from app.textes_interface import libelle
+from builtins import _
+
 
 icones=["Gnome-go-first.png","Gnome-go-previous.png","Gnome-go-next.png","Gnome-go-last.png", ]
 
@@ -24,9 +27,9 @@ fichier_langue = dossier_personnel / ".local" / "piveo" /"configurationLangue.js
 class CadreGauche (QWidget):
     """ Créer la partie gauche de l'interface """
         
-    def __init__(self, liste_personnes, recuperer_BDD, fenetre, configuration_json):
+    def __init__(self, liste_personnes, recuperer_BDD,configuration_json, parent=None):
         """Constructeur de la frame de gauche et de ses éléments"""
-        super().__init__(fenetre) # constructeur de la classe parente
+        super().__init__(parent) # constructeur de la classe parente
         self.configuration_json = configuration_json # configuration de l'interface - json
         layout_gauche = QVBoxLayout()  
         # poisition de LayoutGauche dans la fenetre principale de la fenêtreself.LayoutPrincipal(row=0,column=0,rowspan=3,padx=10,pady=2)
@@ -211,28 +214,31 @@ class CadreGauche (QWidget):
                 
 # ----------------------------------------------------
         
-from PySide6.QtWidgets import QApplication
-
 if __name__ == '__main__':
-#    """  import sys
-#     import gettext
-#     gettext.install("piveo")
-#     app = QApplication(sys.argv)
-#     liste_personnes = [
-#         ['Sarah', 'Fernandez', '1S1', ['CAM', 'THE'], 'fichiers/photos/1S1/Fernandez_Sarah.jpg'],
-#         ['Clement', 'Henry', '1S1', ['CAM'], 'fichiers/photos/1S1/Henry_Clement.jpg'],
-#         ['Emma', 'Petit', 'PSTI2D1', ['ESP'], 'fichiers/photos/PSTI2D1/Petit_Emma.jpg']
-#     ]
-#     config = {
-#         "Organisme": "Entreprise",
-#         "Structure": "Département",
-#         "Personne": "Salarié",
-#         "Specialite": "Fonctions",
-#         "BaseDonnees": "salaries.db",
-#         "CheminPhotos": "photos/salaries/"
-#     }
-#     fenetre = CadreGauche(liste_personnes, config)
-#     fenetre.nbre_pers = len(liste_personnes)
-#     fenetre.show()
-#     sys.exit(app.exec_()) """
-    print("Module utilisé dans l'application principale")
+    
+    chemin = dossier_racine / "locales"
+    gettext.install("messages", localedir=str(chemin))
+
+    app = QApplication(sys.argv)
+
+    dossier_racine = Path(__file__).resolve().parent.parent
+
+    liste_personnes = [
+        ['Sarah', 'Fernandez', '1S1', ['CAM', 'THE'], 'Fernandez_Sarah.jpg'],
+        ['Clement', 'Henry', '1S1', ['CAM'], 'Henry_Clement.jpg'],
+        ['Emma', 'Petit', 'PSTI2D1', ['ESP'], 'Petit_Emma.jpg']
+    ]
+    config = {
+        "Organisme": "Ecole",
+        "Structure": "Classe",
+        "Personne": "Élève",
+        "Specialite": "Options",
+        "BaseDonnees": "eleves.db",
+        "CheminPhotos": "eleves/"
+    }
+    gestionnaire_bdd = GestionnaireBdd
+
+    fenetre = CadreGauche(liste_personnes, gestionnaire_bdd, config)
+    fenetre.nbre_pers = len(liste_personnes)
+    fenetre.show()
+    sys.exit(app.exec_())

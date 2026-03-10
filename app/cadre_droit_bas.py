@@ -1,18 +1,20 @@
+
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*
+# -*- coding: utf-8 -*-
 
-"""
-# selection du mode de fonctionnement
-# (apprentissage, test mental, test ecrit, Rechercher)
-# choix de la classe et de l'option
-"""
-
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QRadioButton, QPushButton, QGridLayout, QLabel, QComboBox, QCheckBox, QButtonGroup
+from PySide6.QtWidgets import (
+    QWidget, QVBoxLayout, QHBoxLayout, QRadioButton, QPushButton,
+    QGridLayout, QLabel, QComboBox, QCheckBox, QButtonGroup, QApplication
+)
 from app.gestionnaire_bdd import GestionnaireBdd
-from PySide6.QtWidgets import QApplication
 from app.textes_interface import libelle
+import gettext
+import os, sys, sqlite3
 from builtins import _
-import sys
+
+REPERTOIRE_RACINE = os.path.dirname(os.path.abspath(__file__))  # répertoire du fichier py
+REPERTOIRE_PROJET = os.path.dirname(REPERTOIRE_RACINE)
+
 
 class CadreDroitBas (QWidget):
     """ Créer la partie droite basse de l'interface """
@@ -153,12 +155,6 @@ class CadreDroitBas (QWidget):
         """activer/désactiver les listes les comboBox, des radiobuttons
            et des labels"""
         if self.bouton_rechercher.isChecked():
-            # désactiver les radiobuttons
-            # self.boutonRadioHaut1.setEnabled(False)
-            # self.boutonRadioHaut2.setEnabled(False)
-            # self.boutonRadioHaut3.setEnabled(False)
-            # self.boutonRadioHaut4.setEnabled(False)
-            # désactiver les listes des comboBox
             self.comboBox_Gauche.setEnabled(False)
             self.comboBox_droite.setEnabled(False)
         else:
@@ -215,18 +211,34 @@ class CadreDroitBas (QWidget):
 # ----------------------------------------------------
 
 if __name__ == '__main__':
-    # import gettext
-    # gettext.install("piveo")
-    # app = QApplication(sys.argv)
-    # config = {
-    # "Organisme": "Entreprise",
-    # "Structure": "Département",
-    # "Personne": "Salarié",
-    # "Specialite": "Fonctions",
-    # "BaseDonnees": "salaries.db",
-    # "CheminPhotos": "photos/salaries/"
-    # }
-    # fenetre = CadreDroitBas(configuration=config)
-    # fenetre.show()
-    # app.exec()
-    print("Module utilisé dans l'application principale")
+
+    # traduction
+    chemin = REPERTOIRE_RACINE / "locales"
+    gettext.install("messages", localedir=str(chemin))
+
+    app = QApplication(sys.argv)
+
+    config = {
+        "Organisme": "Ecole",
+        "Structure": "Département",
+        "Personne": "Salarié",
+        "Specialite": "Fonctions",
+        "BaseDonnees": "salaries.db",
+        "CheminPhotos": "photos/salaries/"
+    }
+
+    chemin_bdd = os.path.join(
+        REPERTOIRE_PROJET,
+        "ressources",
+        "BaseDonnees",
+        config["BaseDonnees"]
+    )
+
+    conn = sqlite3.connect(chemin_bdd)
+    gestionnaire_bdd = GestionnaireBdd(conn)
+
+    fenetre = CadreDroitBas(config, gestionnaire_bdd)
+    fenetre.show()
+
+    app.exec()
+    conn.close()

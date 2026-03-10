@@ -1,3 +1,6 @@
+import gettext
+from builtins import _
+
 LIBELLES_INTERFACE = {
     "parlement": "Parlement",
     "parti": "Parti",

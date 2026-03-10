@@ -6,12 +6,11 @@
 # du lycée
 """
 
-import random, copy
+import random, copy, gettext
 from pathlib import Path
 from app.cadre_gauche import *
 from app.cadre_droit_haut import *
 from app.cadre_droit_bas import *
-from builtins import _
 from PySide6.QtWidgets import (
     QMainWindow, QWidget,
     QMenu, QMessageBox
@@ -21,11 +20,10 @@ from app.textes_interface import libelle
 from pathlib import Path
 from builtins import _
 from app.gestion_langue import GestionLangue
-
+from builtins import _
 
 REPERTOIRE_RACINE = Path(__file__).resolve().parent.parent
 FICHIER_LANGUE: Path = Path.home() / ".local" / "piveo" / "configurations_json" / "configurationLangue.json"
-
 
 class Fenetre(QMainWindow):
     """ Créer l'interface graphique et lier les diffentes classes entre elles"""
@@ -46,8 +44,8 @@ class Fenetre(QMainWindow):
         self.cadre_ga = CadreGauche(
             self.cadre_dr_bas.liste_personnes,
             self.gestionnaire_bdd,
-            self,
-            self.configuration_json
+            self.configuration_json,
+            self
         )
         # Layout
         widget_central = QWidget()
