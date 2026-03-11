@@ -13,9 +13,13 @@ from PySide6.QtGui import QPixmap, QIcon
 from PySide6.QtCore import QSize, Qt
 from app.gestionnaire_bdd import  GestionnaireBdd
 from pathlib import Path
-import gettext
 from app.textes_interface import libelle
+# ⚠️ IMPORTANT
+# ligne ci-dessous -> fonctionnement NORMAL
 from builtins import _
+# Deux lignes ci-dessous décommmentée -> test if __name__ == "__name__":
+# import gettext
+# _ = gettext.gettext
 
 
 icones=["Gnome-go-first.png","Gnome-go-previous.png","Gnome-go-next.png","Gnome-go-last.png", ]
@@ -215,9 +219,6 @@ class CadreGauche (QWidget):
 # ----------------------------------------------------
         
 if __name__ == '__main__':
-    
-    chemin = dossier_racine / "locales"
-    gettext.install("messages", localedir=str(chemin))
 
     app = QApplication(sys.argv)
 

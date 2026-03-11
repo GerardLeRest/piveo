@@ -8,9 +8,13 @@ from PySide6.QtWidgets import (
 )
 from app.gestionnaire_bdd import GestionnaireBdd
 from app.textes_interface import libelle
-import gettext
 import os, sys, sqlite3
+# ⚠️ IMPORTANT
+# ligne ci-dessous -> fonctionnement NORMAL
 from builtins import _
+# Deux lignes ci-dessous décommmentée -> test if __name__ == "__name__":
+# import gettext
+# _ = gettext.gettext
 
 REPERTOIRE_RACINE = os.path.dirname(os.path.abspath(__file__))  # répertoire du fichier py
 REPERTOIRE_PROJET = os.path.dirname(REPERTOIRE_RACINE)
@@ -211,10 +215,6 @@ class CadreDroitBas (QWidget):
 # ----------------------------------------------------
 
 if __name__ == '__main__':
-
-    # traduction
-    chemin = REPERTOIRE_RACINE / "locales"
-    gettext.install("messages", localedir=str(chemin))
 
     app = QApplication(sys.argv)
 

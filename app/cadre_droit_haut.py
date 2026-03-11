@@ -9,9 +9,13 @@ l'établissement
 
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QGridLayout, QLabel, QLineEdit, QHBoxLayout, QPushButton, QApplication, QSpacerItem, QSizePolicy, QFrame
 from PySide6.QtGui import QPixmap
-import gettext
 import os, sys
+# ⚠️ IMPORTANT
+# ligne ci-dessous -> fonctionnement NORMAL
 from builtins import _
+# Deux lignes ci-dessous décommmentée -> test if __name__ == "__name__":
+# import gettext
+# _ = gettext.gettext
 
 REPERTOIRE_RACINE=os.path.dirname(os.path.abspath(__file__)) # répetoire du fichier pyw
 
@@ -215,9 +219,7 @@ class CadreDroiteHaut(QWidget):
         
 # ----------------------------------------------------
 if __name__ == "__main__":
-    # traduction
-    chemin = REPERTOIRE_RACINE / "locales"
-    gettext.install("messages", localedir=str(chemin))
+    
     app = QApplication(sys.argv)
     fenetre = CadreDroiteHaut(None)
     fenetre.prenom_entree.setEnabled(True)
